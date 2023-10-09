@@ -10,6 +10,8 @@ import UIKit
 class ViewCuestFinal: UIViewController {
 
        
+    
+    
     @IBOutlet weak var barraProgreso: UIProgressView!
     
     @IBOutlet weak var numPregunta: UILabel!

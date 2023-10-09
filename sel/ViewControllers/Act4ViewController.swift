@@ -9,10 +9,14 @@ import UIKit
 
 class Act4ViewController: UIViewController{
     
+    @IBOutlet var viewBg: UIView!
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewBg.backgroundColor = UIColor(named: "azulTec")
+        
         let bulletPoint: String = "\u{2022}" // El carácter de viñeta
                 
         let firstNormalText = "Una habilidad relevante de cualquier emprendedor social es que pueda comunicar su propuesta para sumar a más personas a la acción. Por ende, esta actividad tiene el objetivo de recibir retroalimentación de otras personas sobre la propuesta. \n\n Debes identificar a 1 persona que pudiera dar retroalimentación sobre la propuesta de solución. Puede sugerirse un familiar, vecino, profesor o alguien cercano. De preferencia busca a alguien que pudiera ser un posible usuario de tu propuesta de solución.\n\n Para realizar esta entrevista, se debe tener claridad de lo que se compartirá por lo que se sugiere que antes de reunirte con esta persona, tengas claro los siguientes puntos:"
