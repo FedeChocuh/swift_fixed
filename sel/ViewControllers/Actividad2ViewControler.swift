@@ -9,10 +9,13 @@ import UIKit
 
 class Actividad2ViewControler: UIViewController{
     
+    @IBOutlet var viewBg: UIView!
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewBg.backgroundColor = UIColor(named: "azulTec")
         
         let bulletPoint: String = "\u{2022}" // El carácter de viñeta
                 

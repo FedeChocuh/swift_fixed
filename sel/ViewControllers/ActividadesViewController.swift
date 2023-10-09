@@ -12,10 +12,14 @@ import UIKit
 class ActividadesViewController: UIViewController {
     
     
+    @IBOutlet var viewBg: UIView!
     @IBOutlet weak var textView1: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewBg.backgroundColor = UIColor(named: "azulTec")
+        
         let bulletPoint: String = "\u{2022}" // El carácter de viñeta
                 
         let firstNormalText = "1.Haz una lluvia de ideas sobre problemas sociales o ambientales que se dan en tu entorno."
