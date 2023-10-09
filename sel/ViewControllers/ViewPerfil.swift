@@ -70,7 +70,7 @@ class ViewPerfil: UIViewController {
     }
     
     func showLabelData() {
-        labelNombre.text = loginVM.username
+        labelNombre.text = loginVM.name
         labelPass.text = loginVM.password
     }
 

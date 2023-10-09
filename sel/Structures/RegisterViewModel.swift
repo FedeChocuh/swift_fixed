@@ -14,13 +14,13 @@ class RegisterViewModel {
     var gender: String = ""
     var country_id: String = ""
     var age: Int = 0
-    var university: String = ""
+    var university_id: Int = 0
     
     func Register() {
         
         let defaults = UserDefaults.standard
         
-        Webservice().register(name: name, password: password, country_id: country_id, gender: gender, age: age,email: email, university: university) { result in
+        Webservice().register(name: name, password: password, country_id: country_id, gender: gender, age: age,email: email, university_id: university_id) { result in
             switch result {
             case .success(let values):
                 defaults.setValue(values, forKey: "../db")

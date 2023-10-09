@@ -32,7 +32,7 @@ struct RegisterRequestBody: Codable {
     let gender: String
     let country_id: String
     let age: Int
-    let university: String
+    let university_id: Int
     
 }
 
@@ -79,14 +79,14 @@ class Webservice {
         } .resume()
     }
     
-    func register(name: String, password: String, country_id: String, gender: String, age: Int, email: String, university: String,completion: @escaping (Result<String, AuthenticationError>) -> Void){
+    func register(name: String, password: String, country_id: String, gender: String, age: Int, email: String, university_id: Int,completion: @escaping (Result<String, AuthenticationError>) -> Void){
         
         guard let url = URL(string: "http://localhost:3001/users") else {
             completion(.failure(.custom(errorMessage: "URL is not correct")))
             return
         }
         
-        let body = RegisterRequestBody(name: name, password: password, email:email, gender: gender, country_id: country_id, age:age, university:university)
+        let body = RegisterRequestBody(name: name, password: password, email:email, gender: gender, country_id: country_id, age:age, university_id:university_id)
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
