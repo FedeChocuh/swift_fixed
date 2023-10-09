@@ -614,6 +614,9 @@
                                                         <rect key="frame" x="117" y="177" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Comenzar"/>
+                                                        <connections>
+                                                            <segue destination="0NV-vn-DKV" kind="show" id="uHN-CG-7z3"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-Fotos donde identifiques problemas que no te agraden" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHz-YW-hqU">
                                                         <rect key="frame" x="8" y="145" width="316" height="15"/>
@@ -699,6 +702,9 @@
                                                         <rect key="frame" x="117" y="176" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Comenzar"/>
+                                                        <connections>
+                                                            <segue destination="CzU-Cf-qmk" kind="show" id="rf8-gD-eOB"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -779,6 +785,9 @@
                                                         <rect key="frame" x="117" y="177" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Comenzar"/>
+                                                        <connections>
+                                                            <segue destination="Tq5-Ug-qUA" kind="show" id="Urx-nK-o6E"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -848,6 +857,9 @@
                                                         <rect key="frame" x="117" y="169" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Comenzar"/>
+                                                        <connections>
+                                                            <segue destination="Khs-qi-mb0" kind="show" id="6ak-Ip-qAa"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -940,6 +952,9 @@
                                                         <rect key="frame" x="117" y="159" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Comenzar"/>
+                                                        <connections>
+                                                            <segue destination="W9d-yk-D0M" kind="show" id="U2K-ek-Crz"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1189,7 +1204,7 @@
             <objects>
                 <viewController id="CzU-Cf-qmk" customClass="Actividad2ViewControler" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d6M-mX-bVa">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1b8-DA-YS0" customClass="Actividades" customModule="sel" customModuleProvider="target">
@@ -1226,9 +1241,11 @@
                         <viewLayoutGuide key="safeArea" id="ob2-T3-Yvd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Dj0-Fo-iuS"/>
                     <connections>
                         <outlet property="actView" destination="1b8-DA-YS0" id="Gka-qW-6dV"/>
                         <outlet property="textView" destination="idL-Z0-qmr" id="xb0-2o-pPj"/>
+                        <outlet property="viewBg" destination="d6M-mX-bVa" id="BVo-Qq-95c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7N2-nT-mvq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1240,7 +1257,7 @@
             <objects>
                 <viewController id="0NV-vn-DKV" customClass="ActividadesViewController" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="st7-ak-Xw6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Act 1.- Identificación" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFw-Qe-jfZ">
@@ -1276,8 +1293,10 @@
                         <viewLayoutGuide key="safeArea" id="txW-aZ-Bet"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8nT-La-TMm"/>
                     <connections>
                         <outlet property="textView1" destination="ZZP-5R-kam" id="b9R-e6-CX8"/>
+                        <outlet property="viewBg" destination="st7-ak-Xw6" id="2TI-Tg-S6W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOe-Wl-hgn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1289,7 +1308,7 @@
             <objects>
                 <viewController id="Tq5-Ug-qUA" customClass="Act3ViewController" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="san-zL-bjK">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Act 3.- Ideación" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ys2-Rg-lDG">
@@ -1318,8 +1337,10 @@
                         <viewLayoutGuide key="safeArea" id="HLJ-ll-T7R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ick-oP-TIW"/>
                     <connections>
                         <outlet property="textView" destination="e1I-Sz-KOq" id="kff-A2-DY7"/>
+                        <outlet property="viewBg" destination="san-zL-bjK" id="Ioy-JF-u61"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4YE-LD-0zJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1331,7 +1352,7 @@
             <objects>
                 <viewController id="Khs-qi-mb0" customClass="Act4ViewController" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aie-pl-FlM">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instrucciones:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgu-cU-xh1">
@@ -1360,8 +1381,10 @@
                         <viewLayoutGuide key="safeArea" id="pzT-ck-acG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="GBj-MN-oSJ"/>
                     <connections>
                         <outlet property="textView" destination="QCc-Xm-VJ3" id="Pwe-So-bSe"/>
+                        <outlet property="viewBg" destination="aie-pl-FlM" id="Est-a1-CWA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEI-ga-psz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1373,7 +1396,7 @@
             <objects>
                 <viewController id="W9d-yk-D0M" customClass="ViewCuestFinal" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TgO-F6-aTC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Encuesta Final" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nQ-n2-pST">
@@ -1452,6 +1475,7 @@
                         <viewLayoutGuide key="safeArea" id="7QU-D5-X9G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1Fd-sm-3Of"/>
                     <connections>
                         <outlet property="barraProgreso" destination="zfm-sG-HGl" id="7cx-Fh-BEe"/>
                         <outlet property="buttonDeacuerdo" destination="b96-lI-FhL" id="N5u-Tc-dsA"/>
@@ -1483,13 +1507,13 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -11,8 +11,12 @@ class Act3ViewController: UIViewController{
     
     @IBOutlet weak var textView: UITextView!
     
+    @IBOutlet var viewBg: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewBg.backgroundColor = UIColor(named: "azulTec")
+        
         let bulletPoint: String = "\u{2022}" // El carácter de viñeta
                 
         let firstNormalText = "Antes de arrojarnos a proponer posibles soluciones, es importante que veamos que se hace al respecto en otros lugares. Para ello, te sugerimos que hagas una investigación sobre acciones concretas que se hacen internacional, nacional o localmente para atender el problema que elegiste."
