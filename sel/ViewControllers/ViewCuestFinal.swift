@@ -9,7 +9,9 @@ import UIKit
 
 class ViewCuestFinal: UIViewController {
 
+       
     @IBOutlet weak var barraProgreso: UIProgressView!
+    
     @IBOutlet weak var numPregunta: UILabel!
     
     @IBOutlet weak var pregunta: UILabel!
@@ -18,11 +20,13 @@ class ViewCuestFinal: UIViewController {
     
     @IBOutlet weak var buttonDesacuerdo: UIButton!
     
-    @IBOutlet weak var buttonNiDeacuerdoNiDesacuerdo: UIButton!
+    @IBOutlet weak var buttonNideacuerdoNidesacuerdo: UIButton!
     
     @IBOutlet weak var buttonDeacuerdo: UIButton!
     
-    @IBOutlet weak var buttonTotalmentoDeacuerdo: UIButton!
+    @IBOutlet weak var buttonTotalmenteDeacuerdo: UIButton!
+    
+    
     var engine=EcomplexityEngine()
     var userResponses = UserResponses()
     var userResponsesController = UserResponsesController()
@@ -239,10 +243,10 @@ class ViewCuestFinal: UIViewController {
         barraProgreso.progress = engine.getProgress()
         numPregunta.text = engine.getTypeQuestion()
         
-        buttonTotalmentoDeacuerdo.isEnabled = true
-        buttonDeacuerdo.isEnabled = true
-        buttonDeacuerdo.isEnabled = true
         buttonDesacuerdo.isEnabled = true
         buttonTotalmenteDesacuerdo.isEnabled = true
+        buttonNideacuerdoNidesacuerdo.isEnabled = true
+        buttonDeacuerdo.isEnabled = true
+        buttonTotalmenteDeacuerdo.isEnabled = true
     }
 }
