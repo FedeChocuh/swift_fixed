@@ -44,6 +44,9 @@ struct RegisterResponse: Codable {
 
 //----------------------------------------
 class Webservice {
+    public protocol WebServiceProtocol {
+        func login(name: String, password: String, completion: @escaping (Result<String, Error>) -> Void)
+    }
     func login(name: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
         
         guard let url = URL(string: "http://localhost:3001/users") else {
