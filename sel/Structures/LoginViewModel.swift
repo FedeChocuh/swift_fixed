@@ -8,7 +8,6 @@
 import Foundation
 
 class LoginViewModel {
-    var user_id: Int
     var name: String = ""
     var password: String = ""
     @Published var isAuthenticated: Bool = false
