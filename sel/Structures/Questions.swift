@@ -8,10 +8,11 @@
 import Foundation
 
 struct Question:Codable{
-    let id: Int
+    let id: String
     let text: String
     let typeQuestion: String
-    
+    let display: String
+    let hidden: Int
 }
 typealias Questions = [Question]
 
@@ -22,7 +23,7 @@ enum QuestionError: Error, LocalizedError{
 extension Question{
         
     static func fetchQuestions() async throws->Questions{
-        let baseString = "localhost:3001/questions"
+        let baseString = "https://sel4c-e2-server-49c8146f2364.herokuapp.com/questions"
         let questionsURL = URL(string: baseString)!
         let (data, response) = try await URLSession.shared.data(from: questionsURL)
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {

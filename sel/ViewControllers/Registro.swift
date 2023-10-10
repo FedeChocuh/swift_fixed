@@ -194,6 +194,8 @@ class ViewRegistro: UIViewController, UITableViewDelegate, UITableViewDataSource
             
         }
     }
+    
+    
     @IBAction func AlreadyRegistered(_ sender: UIButton) {
         guard
             let username = layerNombre.text,
@@ -211,6 +213,10 @@ class ViewRegistro: UIViewController, UITableViewDelegate, UITableViewDataSource
 
          print(username,password,country,age,email,gender)
          let webService = Webservice()
+      
+        if let username = layerNombre.text {
+            UserDefaults.standard.set(username,forKey: "UsernameKey")
+        }
          
          webService.register(
              name: username,

@@ -50,18 +50,42 @@ class ViewController: UIViewController {
     
     @IBAction func Access(_ sender: UIButton) {
         
-        if let enteredNombreUsuario = layerNombreUsuario.text,
-           let enteredPassword = layerPassword.text,
-           enteredNombreUsuario == loginVM.name && enteredPassword == loginVM.password {
-            loginVM.Login()
-            performSegue(withIdentifier: "IngresarToPreEncuesta", sender: self)
-        
+        guard let email = layerNombreUsuario.text, let password = layerPassword.text else {
+                    return
+                }
+                
+        let webservice = Webservice()
+                // Call the login method from your WebService
+        webservice.login(email: email, password: password) { result in
+                    switch result {
+                    case .success(let token):
+                        // Perform a segue to the next view controller or any other action
+                        self.performSegue(withIdentifier: "IngresarToPreEncuesta", sender: self)
+                        print("Login successful. Token: \(token)")
+                    case .failure(let error):
+                        // Handle the error without using an errorLabel
+                        self.handleLoginError(error)
+                    }
+                
         }
             
         
     }
+    func handleLoginError(_ error: AuthenticationError) {
+        switch error {
+        case .custom(let errorMessage):
+            // Handle custom error message
+            print("Custom error: \(errorMessage)")
+        case .invalidCredentials:
+            // Handle invalid credentials error
+            print("Invalid email or password")
+            // You can display an alert or perform other actions here
+            // Example: self.presentErrorAlert(message: "Invalid email or password")
+        // Handle other error cases as needed
+        }
+    }
     
-    
+
     
         
         

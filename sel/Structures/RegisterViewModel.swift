@@ -15,13 +15,6 @@ import Foundation
         var age: Int = 0
         var university_id: Int = 0
         
-        // Agrega la propiedad webService
-        var webService: WebServiceProtocol
-        
-        init(webService: WebServiceProtocol) {
-            self.webService = webService
-        }
-        
        
     func Register() {
         

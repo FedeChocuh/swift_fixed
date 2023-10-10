@@ -18,12 +18,20 @@ struct EcomplexityEngine{
         return questions[questionIndex].text
     }
     
-    func getId()->Int{
+    func getId()->String{
         return questions[questionIndex].id
     }
     
     func getTypeQuestion() ->String {
         return questions[questionIndex].typeQuestion
+    }
+    
+    func getDisplay() -> String {
+        return questions[questionIndex].display
+    }
+    
+    func getHidden() -> Int {
+        return questions[questionIndex].hidden
     }
     
     func getProgress()->Float{

@@ -13,7 +13,7 @@ enum AuthenticationError: Error {
 }
 
 struct LoginRequestBody: Codable {
-    let name: String
+    let email: String
     let password: String
 }
 
@@ -44,17 +44,14 @@ struct RegisterResponse: Codable {
 
 //----------------------------------------
 class Webservice {
-    public protocol WebServiceProtocol {
-        func login(name: String, password: String, completion: @escaping (Result<String, Error>) -> Void)
-    }
-    func login(name: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
+    func login(email: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
         
-        guard let url = URL(string: "http://localhost:3001/users") else {
+        guard let url = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/users/login") else {
             completion(.failure(.custom(errorMessage: "URL is not correct")))
             return
         }
         
-        let body = LoginRequestBody(name: name, password: password)
+        let body = LoginRequestBody(email: email, password: password)
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -84,7 +81,7 @@ class Webservice {
     
     func register(name: String, password: String, country_id: String, gender: String, age: Int, email: String, university_id: Int,completion: @escaping (Result<String, AuthenticationError>) -> Void){
         
-        guard let url = URL(string: "http://localhost:3001/users") else {
+        guard let url = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/users") else {
             completion(.failure(.custom(errorMessage: "URL is not correct")))
             return
         }
