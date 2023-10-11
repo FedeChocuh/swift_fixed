@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="ViewController" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1138,6 +1138,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cerrar Sesión" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="quZ-N2-wMw" eventType="touchUpInside" id="Xz0-uU-OrA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0yL-va-2lg"/>
@@ -1146,7 +1149,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="uZE-Pr-wyX"/>
                     <navigationItem key="navigationItem" title="Perfil" id="Dq3-gB-7rE"/>
                     <connections>
-                        <outlet property="buttonLogout" destination="FkC-WQ-iSW" id="PCG-oa-nb3"/>
+                        <outlet property="buttonLogout" destination="FkC-WQ-iSW" id="NOZ-aV-fOg"/>
                         <outlet property="buttonModify" destination="Oiv-Og-NI1" id="r9S-NH-5ba"/>
                         <outlet property="formaView" destination="daN-jX-Tqi" id="et4-HW-2yi"/>
                         <outlet property="labelMail" destination="8cp-6S-5SY" id="EsV-wv-oZa"/>
@@ -1266,6 +1269,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="paperplane.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5Sk-xT-JAF">
+                                <rect key="frame" x="163" y="779" width="66" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1b8-DA-YS0" customClass="Actividades" customModule="sel" customModuleProvider="target">
                                 <rect key="frame" x="16" y="171" width="361" height="580"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1326,6 +1333,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMp-8Q-hrn">
+                                <rect key="frame" x="130" y="787" width="134" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Subir Archivos"/>
+                                <connections>
+                                    <action selector="startUp:" destination="0NV-vn-DKV" eventType="touchUpInside" id="Kxm-bk-J8N"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instrucciones:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPe-h2-Hxb">
                                 <rect key="frame" x="32" y="152" width="113" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1334,11 +1350,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmW-br-r58" customClass="Actividades" customModule="sel" customModuleProvider="target">
-                                <rect key="frame" x="16" y="199" width="361" height="619"/>
+                                <rect key="frame" x="16" y="199" width="361" height="566"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Text View 1" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZZP-5R-kam">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="556"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="527"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
@@ -1385,13 +1401,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="View 3" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e1I-Sz-KOq">
-                                <rect key="frame" x="16" y="161" width="361" height="616"/>
+                                <rect key="frame" x="16" y="161" width="361" height="587"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="paperplane.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kLl-Y5-Ymx">
+                                <rect key="frame" x="162" y="778.66666666666652" width="66" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HLJ-ll-T7R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1422,7 +1442,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="View 4" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QCc-Xm-VJ3">
-                                <rect key="frame" x="16" y="166" width="361" height="615"/>
+                                <rect key="frame" x="16" y="166" width="361" height="566"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -1436,6 +1456,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="paperplane.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ju1-Ok-8Lz">
+                                <rect key="frame" x="163" y="778.66666666666652" width="66" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pzT-ck-acG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1548,30 +1572,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FgD-ji-S2I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5861.8320610687024" y="1491.549295774648"/>
-        </scene>
-    </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="LfJ-tD-50Y"/>
-    </inferredMetricsTieBreakers>
-    <resources>
-        <image name="checkmark.square" catalog="system" width="128" height="114"/>
-        <image name="logo" width="1167" height="403"/>
-        <image name="perfil" width="51" height="50"/>
-        <namedColor name="azulTec">
-            <color red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
+ <point key="canvasLocation" x="5861.8320610687024" y="1491.549295774648"/>
+</scene>
+</scenes>
+<inferredMetricsTieBreakers>
+    <segue reference="366-l6-Aed"/>
+    <segue reference="DPn-uX-3vl"/>
+    <segue reference="OVT-Kb-wDT"/>
+</inferredMetricsTieBreakers>
+<resources>
+    <image name="checkmark.square" catalog="system" width="128" height="114"/>
+    <image name="logo" width="1167" height="403"/>
+    <image name="paperplane.fill" catalog="system" width="128" height="119"/>
+    <image name="perfil" width="51" height="50"/>
+    <namedColor name="azulTec">
+        <color red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    </namedColor>
+    <systemColor name="labelColor">
+        <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    </systemColor>
+    <systemColor name="opaqueSeparatorColor">
+        <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    </systemColor>
+    <systemColor name="systemBackgroundColor">
+        <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    </systemColor>
+    <systemColor name="tintColor">
+        <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    </systemColor>
+</resources>
 </document>
