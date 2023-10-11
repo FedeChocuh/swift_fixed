@@ -24,9 +24,22 @@ class ViewPerfil: UIViewController {
     
     @IBOutlet weak var labelNewPass: UITextField!
     
-    @IBOutlet weak var buttonLogout: UIButton!
+    @IBOutlet weak var buttonLogout: UIButton!            //Utilizo una IBAction
+    
+    @IBAction func logoutButtonTapped(_ sender: UIButton) {
+        //Aqui tenemos q borrar las variables donde almacenamos los datos (nombre previsto de la variable defaults)
+        UserDefaults.standard.removeObject(forKey: "jsonwebtoken")
+        
+        // Navega de regreso a la pantalla de inicio de sesión (puedes ajustar esto según tu diseño de navegación).
+        if let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginVC") {
+            navigationController?.pushViewController(loginViewController, animated: true)
+        }
+        
+    }
     
     @IBOutlet weak var buttonModify: UIButton!
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +83,13 @@ class ViewPerfil: UIViewController {
     }
     
     func showLabelData() {
-        labelNombre.text = loginVM.username
+        
+        if let storedUsername = UserDefaults.standard.string(forKey: "UsernameKey") {
+            labelNombre.text = storedUsername
+        }
+
+        
+        //labelNombre.text = loginVM.username
         labelPass.text = loginVM.password
     }
 
