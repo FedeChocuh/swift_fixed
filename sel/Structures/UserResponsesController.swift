@@ -11,7 +11,8 @@ enum UserResponsesError: Error, LocalizedError{
     case itemNotFound
 }
 class UserResponsesController{
-    let baseString = "http://localhost:3001/questions/answers"
+    let defaults = UserDefaults.standard
+    let baseString = "https://sel4c-e2-server-49c8146f2364.herokuapp.com/questions/answers"
     func insertUserResponses(newUserResponses:Answer)async throws->Void{
         let insertURL = URL(string: baseString)!
         var request = URLRequest(url: insertURL)
@@ -22,6 +23,13 @@ class UserResponsesController{
         request.httpBody = jsonData
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else { throw UserResponsesError.itemNotFound}
+        
+        let questionID = newUserResponses.questionId
+        defaults.setValue(questionID, forKey: "questionid")
+        
+        let answer = newUserResponses.answer
+        defaults.setValue(answer, forKey: "answers")
+        
     }
     
 }

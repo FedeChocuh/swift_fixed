@@ -30,7 +30,7 @@ class ViewCuestInicial: UIViewController {
     var engine=EcomplexityEngine()
     var userResponsesController = UserResponsesController()
 
-
+    let defaults = UserDefaults.standard
      
     
     override func viewDidLoad() {
@@ -105,16 +105,16 @@ class ViewCuestInicial: UIViewController {
     
     
     @IBAction func userAnswer(_ sender: UIButton) {
-        let defaults = UserDefaults.standard
         let userId = defaults.integer(forKey: "user_id")
         let answer = sender.titleLabel?.text
+        let questionid = engine.getId()
         // let question = Question(id: engine.getId(),question: engine.getTextQuestion(), type: engine.getTypeQuestion(),display: engine.getDisplay())
         var ans = Answer(userId: userId, questionId: engine.getId(), answer: 0)
         switch answer!{
-        case let str where str.contains("Nada de acuerdo"):
+        case let str where str.contains("Totalmente en desacuerdo"):
             ans.answer = 1
             //print("Nada de acuerdo")
-        case let str where str.contains("Poco de acuerdo"):
+        case let str where str.contains("En desacuerdo"):
             ans.answer = 2
             //print("Poco de acuerdo")
         case let str where str.contains("Ni de acuerdo ni desacuerdo"):
@@ -135,31 +135,20 @@ class ViewCuestInicial: UIViewController {
         buttonAcuerdo.isEnabled = false
         buttonTotalmenteDesacuerdo.isEnabled = false
         buttonDesacuerdo.isEnabled = false
-        
         Task{
             do{
+                print("xxxx")
                 try await userResponsesController.insertUserResponses(newUserResponses: ans)
                 updateUserResponses(title: "Las respuestas fueron almacenas con éxito en el servidor")
+                engine.nextQuestion()
             }catch{
                 displayErrorUserResponses(UserResponsesError.itemNotFound, title: "No se pudo accer almacenar las respuestas en la base de datos")
             }
         }
         
-        if engine.nextQuestion(){
-            print("xxxx")
-            Task{
-                do{
-                    print("xxxx")
-                    try await userResponsesController.insertUserResponses(newUserResponses: ans)
-                    updateUserResponses(title: "Las respuestas fueron almacenas con éxito en el servidor")
-                }catch{
-                    displayErrorUserResponses(UserResponsesError.itemNotFound, title: "No se pudo accer almacenar las respuestas en la base de datos")
-                }
-            }
-            
-        }else{
-            Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: Selector("nextQuestion"), userInfo: nil, repeats: false)
-        }
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector("nextQuestion"), userInfo: nil, repeats: false)
+        
+        
     }
     
     func updateUserResponses(title: String){
@@ -189,6 +178,14 @@ class ViewCuestInicial: UIViewController {
         buttonAcuerdo.isEnabled = true
         buttonDesacuerdo.isEnabled = true
         buttonTotalmenteDesacuerdo.isEnabled = true
+    }
+    
+    
+    @IBAction func performNextPage(_ sender: Any) {
+        let questionID = defaults.integer(forKey: "questionid")
+        if questionID == 50 {
+            self.performSegue(withIdentifier: "ToResults", sender: self)
+        }
     }
 }
     
