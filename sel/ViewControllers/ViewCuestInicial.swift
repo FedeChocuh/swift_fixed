@@ -109,7 +109,7 @@ class ViewCuestInicial: UIViewController {
     @IBAction func userAnswer(_ sender: UIButton) {
         let answer = sender.titleLabel?.text
         let question = Question(id: engine.getId(),question: engine.getTextQuestion(), type: engine.getTypeQuestion(),display: engine.getDisplay())
-        var ans = Answer(question: question, answer: 0)
+        var ans = Answer(question_id: engine.getId(), question: question, answer: 0)
         switch answer!{
         case let str where str.contains("Nada de acuerdo"):
             ans.answer = 1
@@ -128,6 +128,7 @@ class ViewCuestInicial: UIViewController {
             //print("Muy de acuerdo")
         }
         userResponses.responses.append(ans)
+    
         //sender.backgroundColor = UIColor.green
         buttonTotalmenteAcuerdo.isEnabled = false
         buttonNiAcuerdoNiDesacuerdo.isEnabled = false

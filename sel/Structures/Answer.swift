@@ -7,6 +7,7 @@
 
 import Foundation
 struct Answer:Codable{
+    var question_id:Int
     var question:Question
     var answer:Int
 }
