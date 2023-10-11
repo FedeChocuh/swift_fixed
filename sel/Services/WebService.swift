@@ -95,7 +95,7 @@ class Webservice {
                 return
             }
             defaults.setValue(name, forKey: "name")
-            guard let lastname = loginResponse.lastname else {
+            guard let email = loginResponse.email else {
                 completion(.failure(.invalidCredentials))
                 return
             }
