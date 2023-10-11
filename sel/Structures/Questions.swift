@@ -13,8 +13,8 @@ struct Response: Codable {
 
 struct Question:Codable{
     var id: Int
-    var text: String?
-    var typeQuestion: String?
+    var question: String?
+    var type: String?
     var display: String?
     //let hidden: Bool
 }
@@ -36,6 +36,7 @@ extension Question{
         let jsonDecoder = JSONDecoder()
         do {
             let jsonData = try jsonDecoder.decode(Response.self, from: data)
+            print("jsonData: ", jsonData)
             let questions = jsonData.questions
             return questions
         } catch {

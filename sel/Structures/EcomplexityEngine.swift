@@ -15,7 +15,7 @@ struct EcomplexityEngine{
     }
     
     func getTextQuestion()->String{
-        return questions[questionIndex].text ?? "Uknown"
+        return questions[questionIndex].question ?? "Uknown"
     }
     
     func getId()->Int{
@@ -23,7 +23,7 @@ struct EcomplexityEngine{
     }
     
     func getTypeQuestion() ->String {
-        return questions[questionIndex].typeQuestion ?? "Uknown"
+        return questions[questionIndex].type ?? "Uknown"
     }
     
     func getDisplay() -> String {
