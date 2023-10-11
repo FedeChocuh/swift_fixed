@@ -17,6 +17,7 @@ class ViewPreEncuesta: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         estiloBotones()
+        accessDefaults()
         
     }
     // Do any additional setup after loading the view.

@@ -18,7 +18,7 @@ struct EcomplexityEngine{
         return questions[questionIndex].text
     }
     
-    func getId()->String{
+    func getId()->Int{
         return questions[questionIndex].id
     }
     
@@ -30,7 +30,7 @@ struct EcomplexityEngine{
         return questions[questionIndex].display
     }
     
-    func getHidden() -> Int {
+    func getHidden() -> Bool {
         return questions[questionIndex].hidden
     }
     

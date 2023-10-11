@@ -90,7 +90,7 @@ class ViewCuestInicial: UIViewController {
             self.engine.initialize(q: questions)
             self.barraProgreso.progress = self.engine.getProgress()
             self.labelPregunta.text = self.engine.getTextQuestion()
-            self.labelNumPregunta.text = self.engine.getId()
+            self.labelNumPregunta.text = String(self.engine.getId())
             self.labelTipoPregunta.text = self.engine.getTypeQuestion()
             self.userResponses.user = "atlas@gmail.com"
         }

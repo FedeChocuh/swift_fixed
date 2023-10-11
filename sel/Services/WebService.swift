@@ -21,6 +21,16 @@ struct LoginResponse : Codable {
     let token : String?
     let message : String?
     let success : Bool?
+    let userId: Int?
+    let name: String?
+    let lastname: String?
+    let email: String?
+    let age: Int?
+    let gender: String?
+    let countryId: String?
+    let countryName: String?
+    let universityId: Int?
+    let universityName: String?
 }
 
 //----------------------------------------
@@ -45,6 +55,8 @@ struct RegisterResponse: Codable {
 //----------------------------------------
 class Webservice {
     func login(email: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
+        
+        let defaults = UserDefaults.standard
         
         guard let url = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/users/login") else {
             completion(.failure(.custom(errorMessage: "URL is not correct")))
@@ -73,6 +85,33 @@ class Webservice {
                 completion(.failure(.invalidCredentials))
                 return
             }
+            
+            // Assuming loginResponse is an instance of some struct/class
+            // that contains the properties you mentioned.
+
+            let propertiesToSave: [(String?, String)] = [
+                (loginResponse.userId, "userId"),
+                (loginResponse.name, "name"),
+                (loginResponse.lastname, "lastname"),
+                (loginResponse.email, "email"),
+                (loginResponse.age.flatMap { String($0) }, "age"),
+                (loginResponse.gender, "gender"),
+                (loginResponse.countryId, "countryId"),
+                (loginResponse.countryName, "countryName"),
+                (loginResponse.universityId.flatMap { String($0) }, "universityId"),
+                (loginResponse.universityName, "universityName")
+            ]
+
+            for (optionalValue, key) in propertiesToSave {
+                guard let value = optionalValue else {
+                    completion(.failure(.invalidCredentials))
+                    return
+                }
+                defaults.setValue(value, forKey: key)
+            }
+            
+            print(defaults)
+            
             
             completion(.success(token))
             

@@ -7,12 +7,17 @@
 
 import Foundation
 
+struct Response: Codable {
+    let message: String
+    let questions: [Question] // Assuming you have a Question struct defined
+}
+
 struct Question:Codable{
-    let id: String
+    let id: Int
     let text: String
     let typeQuestion: String
     let display: String
-    let hidden: Int
+    let hidden: Bool
 }
 typealias Questions = [Question]
 
@@ -30,8 +35,12 @@ extension Question{
             throw QuestionError.itemNotFound
         }
         let jsonDecoder = JSONDecoder()
-        let questions = try? jsonDecoder.decode(Questions.self, from: data)
-        return questions!
-        
+        do {
+            let jsonData = try jsonDecoder.decode(Response.self, from: data)
+            let questions = jsonData.questions
+            return questions
+        } catch {
+            throw error
+        }
     }
 }
