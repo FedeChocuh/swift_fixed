@@ -21,16 +21,17 @@ struct LoginResponse : Codable {
     let token : String?
     let message : String?
     let success : Bool?
-    let userId: Int?
+    
+    let user_id: Int?
     let name: String?
     let lastname: String?
     let email: String?
     let age: Int?
     let gender: String?
-    let countryId: String?
-    let countryName: String?
-    let universityId: Int?
-    let universityName: String?
+    let country_id: String?
+    let country_name: String?
+    let university_id: Int?
+    let university_name: String?
 }
 
 //----------------------------------------
@@ -75,43 +76,62 @@ class Webservice {
                 completion(.failure(.custom(errorMessage: "No data")))
                 return
             }
-            
             guard let loginResponse = try? JSONDecoder().decode(LoginResponse.self, from: data) else {
                 completion(.failure(.invalidCredentials))
                 return
             }
-            
             guard let token = loginResponse.token else {
                 completion(.failure(.invalidCredentials))
                 return
             }
             
-            // Assuming loginResponse is an instance of some struct/class
-            // that contains the properties you mentioned.
-
-            let propertiesToSave: [(String?, String)] = [
-                (loginResponse.userId, "userId"),
-                (loginResponse.name, "name"),
-                (loginResponse.lastname, "lastname"),
-                (loginResponse.email, "email"),
-                (loginResponse.age.flatMap { String($0) }, "age"),
-                (loginResponse.gender, "gender"),
-                (loginResponse.countryId, "countryId"),
-                (loginResponse.countryName, "countryName"),
-                (loginResponse.universityId.flatMap { String($0) }, "universityId"),
-                (loginResponse.universityName, "universityName")
-            ]
-
-            for (optionalValue, key) in propertiesToSave {
-                guard let value = optionalValue else {
-                    completion(.failure(.invalidCredentials))
-                    return
-                }
-                defaults.setValue(value, forKey: key)
+            guard let userId = loginResponse.user_id else {
+                completion(.failure(.invalidCredentials))
+                return
             }
+            defaults.setValue(userId, forKey: "user_id")
+            guard let name = loginResponse.name else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            defaults.setValue(name, forKey: "name")
+            guard let lastname = loginResponse.lastname else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            defaults.setValue(email, forKey: "email")
+            guard let age = loginResponse.age else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            defaults.setValue(age, forKey: "age")
+            guard let gender = loginResponse.gender else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            defaults.setValue(gender, forKey: "gender")
+            guard let universityId = loginResponse.university_id else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            defaults.setValue(universityId, forKey: "university_id")
+            guard let universityName = loginResponse.university_name else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            defaults.setValue(universityName, forKey: "university_name")
+            guard let countryId = loginResponse.country_id else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            defaults.setValue(countryId, forKey: "country_id")
+            guard let countryName = loginResponse.country_name else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            defaults.setValue(countryName, forKey: "country_name")
             
             print(defaults)
-            
             
             completion(.success(token))
             
