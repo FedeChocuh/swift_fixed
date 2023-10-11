@@ -108,7 +108,7 @@ class ViewCuestInicial: UIViewController {
     
     @IBAction func userAnswer(_ sender: UIButton) {
         let answer = sender.titleLabel?.text
-        let question = Question(id: engine.getId(),text: engine.getTextQuestion(), typeQuestion: engine.getTypeQuestion(),display: engine.getDisplay(),hidden: engine.getHidden())
+        let question = Question(id: engine.getId(),text: engine.getTextQuestion(), typeQuestion: engine.getTypeQuestion(),display: engine.getDisplay())
         var ans = Answer(question: question, answer: 0)
         switch answer!{
         case let str where str.contains("Nada de acuerdo"):

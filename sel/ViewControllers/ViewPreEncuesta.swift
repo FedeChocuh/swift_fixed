@@ -34,7 +34,7 @@ class ViewPreEncuesta: UIViewController {
 
         if let name = defaults.string(forKey: "name") {
             // Use the retrieved "name" value here
-            labelUser.text = name
+            labelUser.text = name + "!"
         } else {
             // Handle the case where the "name" value is not found
             print("Name value not found in UserDefaults")

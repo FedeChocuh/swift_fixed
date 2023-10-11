@@ -15,7 +15,7 @@ struct EcomplexityEngine{
     }
     
     func getTextQuestion()->String{
-        return questions[questionIndex].text
+        return questions[questionIndex].text ?? "Uknown"
     }
     
     func getId()->Int{
@@ -23,16 +23,14 @@ struct EcomplexityEngine{
     }
     
     func getTypeQuestion() ->String {
-        return questions[questionIndex].typeQuestion
+        return questions[questionIndex].typeQuestion ?? "Uknown"
     }
     
     func getDisplay() -> String {
-        return questions[questionIndex].display
+        return questions[questionIndex].display ?? "Uknown"
     }
     
-    func getHidden() -> Bool {
-        return questions[questionIndex].hidden
-    }
+    
     
     func getProgress()->Float{
         let progress = Float(questionIndex+1)/Float(questions.count)

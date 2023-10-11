@@ -8,16 +8,15 @@
 import Foundation
 
 struct Response: Codable {
-    let message: String
-    let questions: [Question] // Assuming you have a Question struct defined
+    var questions: [Question] // Assuming you have a Question struct defined
 }
 
 struct Question:Codable{
-    let id: Int
-    let text: String
-    let typeQuestion: String
-    let display: String
-    let hidden: Bool
+    var id: Int
+    var text: String?
+    var typeQuestion: String?
+    var display: String?
+    //let hidden: Bool
 }
 typealias Questions = [Question]
 
