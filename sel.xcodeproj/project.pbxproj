@@ -10,7 +10,6 @@
 		2E14020F2ACBC7AB00A07382 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E14020E2ACBC7AB00A07382 /* RegisterViewModel.swift */; };
 		2E1402112ACC8BFB00A07382 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1402102ACC8BFB00A07382 /* Questions.swift */; };
 		2E1402132ACC8D0E00A07382 /* EcomplexityEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1402122ACC8D0E00A07382 /* EcomplexityEngine.swift */; };
-		2E1402152ACC8DA700A07382 /* UserResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1402142ACC8DA700A07382 /* UserResponses.swift */; };
 		2E1402172ACC8DBC00A07382 /* UserResponsesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1402162ACC8DBC00A07382 /* UserResponsesController.swift */; };
 		2E1402192ACC8DED00A07382 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1402182ACC8DED00A07382 /* Answer.swift */; };
 		2E3E5A152AC36C3500E02774 /* Registro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E5A142AC36C3500E02774 /* Registro.swift */; };
@@ -65,7 +64,6 @@
 		2E14020E2ACBC7AB00A07382 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		2E1402102ACC8BFB00A07382 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 		2E1402122ACC8D0E00A07382 /* EcomplexityEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcomplexityEngine.swift; sourceTree = "<group>"; };
-		2E1402142ACC8DA700A07382 /* UserResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponses.swift; sourceTree = "<group>"; };
 		2E1402162ACC8DBC00A07382 /* UserResponsesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponsesController.swift; sourceTree = "<group>"; };
 		2E1402182ACC8DED00A07382 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		2E3E5A142AC36C3500E02774 /* Registro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registro.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				2E14020E2ACBC7AB00A07382 /* RegisterViewModel.swift */,
 				2E1402102ACC8BFB00A07382 /* Questions.swift */,
 				2E1402122ACC8D0E00A07382 /* EcomplexityEngine.swift */,
-				2E1402142ACC8DA700A07382 /* UserResponses.swift */,
 				2E1402162ACC8DBC00A07382 /* UserResponsesController.swift */,
 				2E1402182ACC8DED00A07382 /* Answer.swift */,
 			);
@@ -399,7 +396,6 @@
 				2EB794F92AA179C5007FA8EF /* SceneDelegate.swift in Sources */,
 				571B82EC2AD3573300EB71CE /* ViewCuestFinal.swift in Sources */,
 				8D73E4322AD2364100F037B2 /* Actividad2ViewControler.swift in Sources */,
-				2E1402152ACC8DA700A07382 /* UserResponses.swift in Sources */,
 				8D73E4382AD24CE600F037B2 /* Act4ViewController.swift in Sources */,
 				2E8E29D52AD381E100C79782 /* ActividadesMain.swift in Sources */,
 				2E1402192ACC8DED00A07382 /* Answer.swift in Sources */,

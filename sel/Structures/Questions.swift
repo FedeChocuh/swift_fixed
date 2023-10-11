@@ -36,7 +36,6 @@ extension Question{
         let jsonDecoder = JSONDecoder()
         do {
             let jsonData = try jsonDecoder.decode(Response.self, from: data)
-            print("jsonData: ", jsonData)
             let questions = jsonData.questions
             return questions
         } catch {

@@ -28,7 +28,6 @@ class ViewCuestInicial: UIViewController {
     @IBOutlet weak var barraProgreso: UIProgressView!
     
     var engine=EcomplexityEngine()
-    var userResponses = UserResponses()
     var userResponsesController = UserResponsesController()
 
 
@@ -92,7 +91,6 @@ class ViewCuestInicial: UIViewController {
             self.textviewPregunta.text = self.engine.getTextQuestion()
             self.labelNumPregunta.text = String(self.engine.getId())
             self.labelTipoPregunta.text = self.engine.getTypeQuestion()
-            self.userResponses.user = "atlas@gmail.com"
         }
     }
     
@@ -107,9 +105,11 @@ class ViewCuestInicial: UIViewController {
     
     
     @IBAction func userAnswer(_ sender: UIButton) {
+        let defaults = UserDefaults.standard
+        let userId = defaults.integer(forKey: "user_id")
         let answer = sender.titleLabel?.text
-        let question = Question(id: engine.getId(),question: engine.getTextQuestion(), type: engine.getTypeQuestion(),display: engine.getDisplay())
-        var ans = Answer(question_id: engine.getId(), question: question, answer: 0)
+        // let question = Question(id: engine.getId(),question: engine.getTextQuestion(), type: engine.getTypeQuestion(),display: engine.getDisplay())
+        var ans = Answer(userId: userId, questionId: engine.getId(), answer: 0)
         switch answer!{
         case let str where str.contains("Nada de acuerdo"):
             ans.answer = 1
@@ -127,7 +127,7 @@ class ViewCuestInicial: UIViewController {
             ans.answer = 5
             //print("Muy de acuerdo")
         }
-        userResponses.responses.append(ans)
+        
     
         //sender.backgroundColor = UIColor.green
         buttonTotalmenteAcuerdo.isEnabled = false
@@ -136,10 +136,21 @@ class ViewCuestInicial: UIViewController {
         buttonTotalmenteDesacuerdo.isEnabled = false
         buttonDesacuerdo.isEnabled = false
         
+        Task{
+            do{
+                try await userResponsesController.insertUserResponses(newUserResponses: ans)
+                updateUserResponses(title: "Las respuestas fueron almacenas con éxito en el servidor")
+            }catch{
+                displayErrorUserResponses(UserResponsesError.itemNotFound, title: "No se pudo accer almacenar las respuestas en la base de datos")
+            }
+        }
+        
         if engine.nextQuestion(){
+            print("xxxx")
             Task{
                 do{
-                    try await userResponsesController.insertUserResponses(newUserResponses: userResponses)
+                    print("xxxx")
+                    try await userResponsesController.insertUserResponses(newUserResponses: ans)
                     updateUserResponses(title: "Las respuestas fueron almacenas con éxito en el servidor")
                 }catch{
                     displayErrorUserResponses(UserResponsesError.itemNotFound, title: "No se pudo accer almacenar las respuestas en la base de datos")

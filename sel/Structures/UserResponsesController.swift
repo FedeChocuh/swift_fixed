@@ -11,8 +11,8 @@ enum UserResponsesError: Error, LocalizedError{
     case itemNotFound
 }
 class UserResponsesController{
-    let baseString = "https://sel4c-e2-server-49c8146f2364.herokuapp.com/questions/answers"
-    func insertUserResponses(newUserResponses:UserResponses)async throws->Void{
+    let baseString = "http://localhost:3001/questions/answers"
+    func insertUserResponses(newUserResponses:Answer)async throws->Void{
         let insertURL = URL(string: baseString)!
         var request = URLRequest(url: insertURL)
         request.httpMethod = "POST"

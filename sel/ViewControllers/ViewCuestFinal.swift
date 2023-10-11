@@ -30,7 +30,6 @@ class ViewCuestFinal: UIViewController {
     
     
     var engine=EcomplexityEngine()
-    var userResponses = UserResponses()
     var userResponsesController = UserResponsesController()
     
 
