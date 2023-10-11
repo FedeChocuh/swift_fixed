@@ -8,8 +8,7 @@
 import Foundation
 
 class LoginViewModel {
-    var user_id: Int
-    var name: String = ""
+    var email: String = ""
     var password: String = ""
     @Published var isAuthenticated: Bool = false
     
@@ -17,7 +16,7 @@ class LoginViewModel {
         
         let defaults = UserDefaults.standard
         
-        Webservice().login(name: name, password: password) { result in
+        Webservice().login(email: email, password: password) { result in
             switch result {
             case .success(let token):
                 defaults.setValue(token, forKey: "jsonwebtoken")

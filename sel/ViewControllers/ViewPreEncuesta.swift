@@ -8,22 +8,39 @@
 import UIKit
 
 class ViewPreEncuesta: UIViewController {
-
-    @IBOutlet weak var buttonIngresar: UIButton!
     
-    @IBOutlet weak var labelUsuario: UILabel!
+    @IBOutlet weak var labelUser: UILabel!
+    
+    @IBOutlet weak var buttonEnter: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         estiloBotones()
-        // Do any additional setup after loading the view.
+        accessDefaults()
+        
     }
+    // Do any additional setup after loading the view.
     
     func estiloBotones(){
-        buttonIngresar.tintColor = UIColor(named: "azulTec")
-        buttonIngresar.layer.cornerRadius = 25
-        buttonIngresar.clipsToBounds = true
+        buttonEnter.tintColor = UIColor(named: "azulTec")
+        buttonEnter.layer.cornerRadius = 25
+        buttonEnter.clipsToBounds = true
     }
+    
+    func accessDefaults() {
+        // Assuming you are in another script or class
+        let defaults = UserDefaults.standard
 
-
+        if let name = defaults.string(forKey: "name") {
+            // Use the retrieved "name" value here
+            labelUser.text = name + "!"
+        } else {
+            // Handle the case where the "name" value is not found
+            print("Name value not found in UserDefaults")
+        }
+    }
+    
 }
+
+

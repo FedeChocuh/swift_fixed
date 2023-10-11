@@ -82,16 +82,13 @@ class ViewPerfil: UIViewController {
         
     }
     
-    func showLabelData() {
-        
-        if let storedUsername = UserDefaults.standard.string(forKey: "UsernameKey") {
-            labelNombre.text = storedUsername
-        }
-
-        
-        //labelNombre.text = loginVM.username
-        labelPass.text = loginVM.password
+func showLabelData() {
+    if let storedUsername = UserDefaults.standard.string(forKey: "UsernameKey") {
+        labelNombre.text = storedUsername
     }
+    labelPass.text = loginVM.password
+}
+
 
 
 }

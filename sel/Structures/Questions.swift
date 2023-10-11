@@ -7,11 +7,16 @@
 
 import Foundation
 
+struct Response: Codable {
+    var questions: [Question] // Assuming you have a Question struct defined
+}
+
 struct Question:Codable{
-    let id: Int
-    let text: String
-    let typeQuestion: String
-    
+    var id: Int
+    var question: String?
+    var type: String?
+    var display: String?
+    //let hidden: Bool
 }
 typealias Questions = [Question]
 
@@ -22,15 +27,20 @@ enum QuestionError: Error, LocalizedError{
 extension Question{
         
     static func fetchQuestions() async throws->Questions{
-        let baseString = "localhost:3001/questions"
+        let baseString = "https://sel4c-e2-server-49c8146f2364.herokuapp.com/questions"
         let questionsURL = URL(string: baseString)!
         let (data, response) = try await URLSession.shared.data(from: questionsURL)
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw QuestionError.itemNotFound
         }
         let jsonDecoder = JSONDecoder()
-        let questions = try? jsonDecoder.decode(Questions.self, from: data)
-        return questions!
-        
+        do {
+            let jsonData = try jsonDecoder.decode(Response.self, from: data)
+            print("jsonData: ", jsonData)
+            let questions = jsonData.questions
+            return questions
+        } catch {
+            throw error
+        }
     }
 }
