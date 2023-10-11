@@ -394,7 +394,7 @@
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsl-fb-khF">
                                 <rect key="frame" x="30" y="119" width="263" height="66.333333333333314"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="48"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -414,12 +414,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xtN-nn-7L1">
                                 <rect key="frame" x="30" y="237.66666666666663" width="333" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LsC-VQ-Ld9">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1KI-GI-Xa3">
                                         <rect key="frame" x="0.0" y="0.0" width="333" height="100"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="djQ-os-wJ8"/>
@@ -554,8 +556,8 @@
                         <outlet property="buttonTotalmenteAcuerdo" destination="eEp-No-DFy" id="Baa-tl-kfl"/>
                         <outlet property="buttonTotalmenteDesacuerdo" destination="UgV-ch-Ou5" id="ign-Vn-wg4"/>
                         <outlet property="labelNumPregunta" destination="ifq-Hp-CF5" id="3Xo-jW-YE3"/>
-                        <outlet property="labelPregunta" destination="LsC-VQ-Ld9" id="Tj4-AQ-9qa"/>
                         <outlet property="labelTipoPregunta" destination="rsl-fb-khF" id="oVs-qj-Eyp"/>
+                        <outlet property="textviewPregunta" destination="1KI-GI-Xa3" id="0R6-ah-4p3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3j-wR-03u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

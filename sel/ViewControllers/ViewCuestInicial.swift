@@ -13,7 +13,7 @@ class ViewCuestInicial: UIViewController {
     
     @IBOutlet weak var labelNumPregunta: UILabel!
     
-    @IBOutlet weak var labelPregunta: UILabel!
+    @IBOutlet weak var textviewPregunta: UITextView!
     
     @IBOutlet weak var buttonTotalmenteDesacuerdo: UIButton!
     
@@ -89,7 +89,7 @@ class ViewCuestInicial: UIViewController {
         DispatchQueue.main.async {
             self.engine.initialize(q: questions)
             self.barraProgreso.progress = self.engine.getProgress()
-            self.labelPregunta.text = self.engine.getTextQuestion()
+            self.textviewPregunta.text = self.engine.getTextQuestion()
             self.labelNumPregunta.text = String(self.engine.getId())
             self.labelTipoPregunta.text = self.engine.getTypeQuestion()
             self.userResponses.user = "atlas@gmail.com"
@@ -167,9 +167,10 @@ class ViewCuestInicial: UIViewController {
             }
         }
     @objc func nextQuestion(){
-        labelPregunta.text = engine.getTextQuestion()
+        textviewPregunta.text = engine.getTextQuestion()
         barraProgreso.progress = engine.getProgress()
         labelTipoPregunta.text = engine.getTypeQuestion()
+        labelNumPregunta.text = String(engine.getId())
         
         buttonTotalmenteAcuerdo.isEnabled = true
         buttonNiAcuerdoNiDesacuerdo.isEnabled = true
