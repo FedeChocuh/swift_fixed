@@ -7,6 +7,17 @@
 
 import Foundation
 import MobileCoreServices
+extension URL {
+    func mimeType() -> String {
+        let pathExtension = self.pathExtension
+        if let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, pathExtension as CFString, nil)?.takeRetainedValue() {
+            if let mimetype = UTTypeCopyPreferredTagWithClass(uti, kUTTagClassMIMEType)?.takeRetainedValue() {
+                return mimetype as String
+            }
+        }
+        return "application/octet-stream"
+    }
+}
 
 class FileTransferUtility {
     
@@ -44,11 +55,11 @@ class FileTransferUtility {
         }
         task.resume()
     }
-
-
     
-    func uploadFile(userId: String, activityId: String, fileURL: URL, completion: @escaping (Result<Void, Error>) -> Void) {
-        guard let uploadURL = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/activities/upload/\(userId)/\(activityId)") else {
+    
+    //"https://sel4c-e2-server-49c8146f2364.herokuapp.com/activities/upload/\(userId)/\(activityId)"
+    func uploadFile(url: URL, userId: String, activityId: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let uploadURL = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/activities/upload/") else {
             completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid upload URL"])))
             return
         }
@@ -56,19 +67,21 @@ class FileTransferUtility {
         var request = URLRequest(url: uploadURL)
         request.httpMethod = "POST"
         
-        let boundary = UUID().uuidString
+        let boundary = "Boundary-\(UUID().uuidString)"
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         
-        var body = Data()
-        body.append("--\(boundary)\r\n".data(using: .utf8)!)
-        body.append("Content-Disposition: form-data; name=\"file\"; filename=\"\(fileURL.lastPathComponent)\"\r\n".data(using: .utf8)!)
-        body.append("Content-Type: \(fileURL.mimeType())\r\n\r\n".data(using: .utf8)!)
-        body.append(try! Data(contentsOf: fileURL))
-        body.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
         
-        request.httpBody = body
+        let body: Data
+        do {
+            body = try createBody(with: url, userId: userId, activityId: activityId, boundary: boundary)
+        } catch {
+            completion(.failure(error))
+            return
+        }
         
-        let uploadTask = URLSession.shared.uploadTask(with: request, from: body) { data, response, error in
+        let uploadTask = session.uploadTask(with: request, from: body) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -81,6 +94,43 @@ class FileTransferUtility {
         }
         uploadTask.resume()
     }
+    
+    
+    private func createBody(with fileURL: URL, userId: String, activityId: String, boundary: String) throws -> Data {
+        var body = Data()
+        
+        func append(_ string: String) {
+            if let data = string.data(using: .utf8) {
+                body.append(data)
+            }
+        }
+        
+        // Append file data
+        let filename = fileURL.lastPathComponent
+        let data = try Data(contentsOf: fileURL)
+        let mimetype = fileURL.mimeType()
+        append("--\(boundary)\r\n")
+        append("Content-Disposition: form-data; name=\"file\"; filename=\"\(filename)\"\r\n")
+        append("Content-Type: \(mimetype)\r\n\r\n")
+        body.append(data)
+        append("\r\n")
+        
+        // Append user ID
+        append("--\(boundary)\r\n")
+        append("Content-Disposition: form-data; name=\"user_id\"\r\n\r\n")
+        append("\(userId)\r\n")
+        
+        // Append activity ID
+        append("--\(boundary)\r\n")
+        append("Content-Disposition: form-data; name=\"activity_id\"\r\n\r\n")
+        append("\(activityId)\r\n")
+        
+        // Append final boundary
+        append("--\(boundary)--\r\n")
+        
+        return body
+    }
+    
     
     func downloadFile(userId: String, activityId: String, completion: @escaping (Result<URL, Error>) -> Void) {
         guard let downloadURL = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/activities/download/\(userId)/\(activityId)") else {
@@ -103,17 +153,10 @@ class FileTransferUtility {
             completion(.success(url))
         }
         downloadTask.resume()
+        
+        
     }
 }
 
-extension URL {
-    func mimeType() -> String {
-        let pathExtension = self.pathExtension
-        if let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, pathExtension as CFString, nil)?.takeRetainedValue() {
-            if let mimetype = UTTypeCopyPreferredTagWithClass(uti, kUTTagClassMIMEType)?.takeRetainedValue() {
-                return mimetype as String
-            }
-        }
-        return "application/octet-stream"
-    }
-}
+
+

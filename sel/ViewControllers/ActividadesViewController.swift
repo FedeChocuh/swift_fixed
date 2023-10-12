@@ -31,7 +31,7 @@ class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FileTransferUtility.shared.checkFileExists(userId: userId, activityId: actId) { result in
+        FileTransferUtility.shared.uploadFile(url: selectedFileURL, userId: userId, activityId: actId) { result in
                 switch result {
                 case .success(let fileExists):
                     if fileExists {
