@@ -204,10 +204,3 @@ class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
         present(alert, animated: true)
     }
 }
-
-
-
-
-
-
-

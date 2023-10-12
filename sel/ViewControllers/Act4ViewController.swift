@@ -7,15 +7,10 @@
 
 import UIKit
 
-class Act4ViewController: UIViewController, UIDocumentPickerDelegate {
+class Act4ViewController: UIViewController{
     
     @IBOutlet var viewBg: UIView!
     @IBOutlet weak var textView: UITextView!
-    
-    
-    @IBAction func startUp(_ sender: Any) {
-        selectFile()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,27 +112,7 @@ class Act4ViewController: UIViewController, UIDocumentPickerDelegate {
         textView.attributedText = attributedText
     }
     
-    func selectFile() {
-        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.data])
-        documentPicker.delegate = self
-        documentPicker.allowsMultipleSelection = false // Change to true if you want to allow multiple file selection
         
-        present(documentPicker, animated: true, completion: nil)
-    }
-    
-    
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        guard let selectedFileURL = urls.first else {
-            return
-        }
-
-        // Here, you can handle the selected file (e.g., upload it to a server, process it, etc.)
-        // selectedFileURL contains the URL of the selected file.
-    }
-
-    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-        // This function is called when the user cancels the file selection.
-    }
 
 }
 

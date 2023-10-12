@@ -24,7 +24,7 @@ final class selTests: XCTestCase {
             loginViewModel.password = "password"
 
             // Simulate a successful login response from the webservice.
-            Webservice().login(name: loginViewModel.name, password: loginViewModel.password) { result in
+            Webservice().login(email: loginViewModel.name, password: loginViewModel.password) { result in
                 switch result {
                 case .success(let token):
                     // Set the JWT token in UserDefaults.
@@ -34,10 +34,8 @@ final class selTests: XCTestCase {
                 }
             }
 
-            // Wait for the main queue to finish processing the login response.
             RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
 
-            // Verify that the user is authenticated.
             XCTAssertEqual(loginViewModel.isAuthenticated, true)
         }
     }
@@ -52,7 +50,54 @@ final class selTests: XCTestCase {
 
             let defaults = UserDefaults.standard
 
-            Webservice().login(name: name, password: password) { result in
+            Webservice().login(email: name, password: password) { result in
+                switch result {
+                case .success(let token):
+                    defaults.setValue(token, forKey: "jsonwebtoken")
+                    DispatchQueue.main.async {
+                        self.isAuthenticated = true
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+    //Login negativo
+    class LoginViewNegModelTests: XCTestCase {
+
+        func testLoginNeg() {
+            let loginViewModel = LoginViewModel()
+            loginViewModel.name = "testNeg"
+            loginViewModel.password = "passwordNeg"
+
+            // Simulate a successful login response from the webservice.
+            Webservice().login(email: loginViewModel.name, password: loginViewModel.password) { result in
+                switch result {
+                case .success(let token):
+                    // Set the JWT token in UserDefaults.
+                    UserDefaults.standard.setValue(token, forKey: "jsonwebtoken")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.1))
+
+            XCTAssertEqual(loginViewModel.isAuthenticated, false)
+        }
+    }
+
+    class LoginNegViewModel {
+        var name: String = ""
+        var password: String = ""
+        @Published var isAuthenticated: Bool = false
+
+        func Login() {
+
+            let defaults = UserDefaults.standard
+
+            Webservice().login(email: name, password: password) { result in
                 switch result {
                 case .success(let token):
                     defaults.setValue(token, forKey: "jsonwebtoken")
@@ -66,48 +111,98 @@ final class selTests: XCTestCase {
         }
     }
     
-    /*
-    
-    class RegisterViewModelTests: XCTestCase {
+  
+    class ViewRegistroTests: XCTestCase {
+        var viewRegistro: ViewRegistro!
         
-        func testRegister() {
-            // Configura tu implementación real del servicio web (Reemplaza YourWebServiceImplementation)
-            let webService = Webservice() // Sustituye YourWebServiceImplementation con tu implementación real del servicio web
+        override func setUp() {
+            super.setUp()
             
-            // Crea una instancia de RegisterViewModel y proporciona la implementación del servicio web
-            let viewModel = RegisterViewModel(webService: webService)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            viewRegistro = storyboard.instantiateViewController(withIdentifier: "ViewRegistro") as? ViewRegistro
             
-            // Configura datos de prueba en el ViewModel
-            viewModel.name = "usuario_prueba"
-            viewModel.password = "contraseña_prueba"
-            viewModel.country_id = "123"
-            viewModel.gender = "masculino"
-            viewModel.age = 30
-            viewModel.email = "test@example.com"
-            viewModel.university_id = 456
-            
-            // Simula una respuesta exitosa del servicio web
-            let expectedResponse: [String: Any] = ["status": "success", "message": "Registro exitoso"]
-            
-            // Mock del servicio web (puedes crear una versión de prueba del servicio)
-            let mockWebService = MockWebService(response: .success(expectedResponse))
-            
-            // Asigna el servicio web mock al ViewModel
-            viewModel.webService = mockWebService
-            
-            // Llama a la función Register() para iniciar el registro
-            viewModel.Register()
-            
-            // Verifica que el valor se haya guardado correctamente en UserDefaults
-            let savedValue = UserDefaults.standard.value(forKey: "../db") as? [String: Any]
-            XCTAssertEqual(savedValue, expectedResponse)
-            
-            
+            viewRegistro.loadView()
+            viewRegistro.viewDidLoad()
+            viewRegistro.viewWillAppear(false)
         }
+        
+        override func tearDown() {
+            viewRegistro = nil
+            super.tearDown()
+        }
+
+
+        func testTermsButton() {
+            XCTAssertTrue(viewRegistro.unchecked)
+            
+            viewRegistro.Terms(UIButton())
+            
+            XCTAssertFalse(viewRegistro.unchecked)
+        }
+
+        func testRegistrationWithValidData() {
+            // Establece datos de prueba
+            viewRegistro.layerNombre.text = "UsuarioPrueba"
+            viewRegistro.layerPassword.text = "ContraseñaPrueba"
+            viewRegistro.layerPais.text = "México"
+            viewRegistro.layerEdad.text = "25"
+            viewRegistro.layerEmail.text = "correo@ejemplo.com"
+            viewRegistro.layerGenero.text = "Masculino"
+            viewRegistro.layerUniversidad.text = "123"
+
+            viewRegistro.AlreadyRegistered(UIButton())
+
+
+        }
+
+
     }
     
-    
-*/
+    class ViewPerfilTests: XCTestCase {
+        var viewPerfil: ViewPerfil!
+
+        override func setUp() {
+            super.setUp()
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            viewPerfil = storyboard.instantiateViewController(withIdentifier: "ViewPerfil") as? ViewPerfil
+
+            viewPerfil.loadView()
+            viewPerfil.viewDidLoad()
+        }
+
+        override func tearDown() {
+            viewPerfil = nil
+            super.tearDown()
+        }
+
+
+        func testLogoutButtonTapped() {
+            UserDefaults.standard.set("jwtToken", forKey: "jsonwebtoken")
+
+            XCTAssertEqual(UserDefaults.standard.string(forKey: "jsonwebtoken"), "jwtToken")
+
+            viewPerfil.logoutButtonTapped(UIButton())
+
+            XCTAssertNil(UserDefaults.standard.string(forKey: "jsonwebtoken"))
+        }
+
+        func testButtonStyle() {
+            viewPerfil.estiloBotones()
+
+        }
+
+        func testShowLabelData() {
+            UserDefaults.standard.set("UsuarioPrueba", forKey: "UsernameKey")
+
+            viewPerfil.showLabelData()
+
+            XCTAssertEqual(viewPerfil.labelNombre.text, "UsuarioPrueba")
+
+            UserDefaults.standard.removeObject(forKey: "UsernameKey")
+        }
+    }
+ 
     
     // Mock del servicio web para pruebas
     class MockWebService: Webservice{
@@ -125,7 +220,6 @@ final class selTests: XCTestCase {
     }
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDownWithError() throws {
@@ -133,17 +227,11 @@ final class selTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+
     }
 
     func testPerformanceExample() throws {
-        // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
         }
     }
     
