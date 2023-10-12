@@ -67,7 +67,7 @@ class ViewRegistro: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func fetchCountries() {
-            guard let url = URL(string: "http://localhost:3001/countries") else {
+            guard let url = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/countries") else {
                 print("Invalid URL")
                 return
             }
