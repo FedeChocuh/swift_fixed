@@ -1511,48 +1511,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ILJ-It-MES">
-                                <rect key="frame" x="16" y="92" width="361" height="730"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jLb-45-uKc">
+                                <rect key="frame" x="0.0" y="45" width="393" height="797"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Act 1.- Identificación" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFw-Qe-jfZ">
-                                        <rect key="frame" x="32.333333333333343" y="0.0" width="296.66666666666663" height="36"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instrucciones:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPe-h2-Hxb">
-                                        <rect key="frame" x="124.33333333333331" y="59.999999999999993" width="112.66666666666669" height="21.666666666666664"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmW-br-r58" customClass="Actividades" customModule="sel" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="105.66666666666669" width="361" height="566"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMf-A8-WaN">
+                                        <rect key="frame" x="8" y="-6" width="377" height="1324"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Text View 1" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZZP-5R-kam">
-                                                <rect key="frame" x="0.0" y="0.0" width="361" height="527"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instrucciones:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPe-h2-Hxb">
+                                                <rect key="frame" x="8" y="81" width="112.66666666666674" height="21.666666666666515"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Act 1.- Identificación" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFw-Qe-jfZ">
+                                                <rect key="frame" x="40" y="37" width="296.66666666666674" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmW-br-r58" customClass="Actividades" customModule="sel" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="379" width="361" height="566"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Text View 1" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZZP-5R-kam">
+                                                        <rect key="frame" x="0.0" y="-272" width="361" height="527"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMp-8Q-hrn">
+                                                <rect key="frame" x="121" y="696" width="134" height="34.333333333333485"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Subir Archivos"/>
+                                                <connections>
+                                                    <action selector="startUp:" destination="0NV-vn-DKV" eventType="touchUpInside" id="Kxm-bk-J8N"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1324" id="2yC-8j-S1n"/>
+                                        </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMp-8Q-hrn">
-                                        <rect key="frame" x="113.66666666666669" y="695.66666666666663" width="134" height="34.333333333333371"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Subir Archivos"/>
-                                        <connections>
-                                            <action selector="startUp:" destination="0NV-vn-DKV" eventType="touchUpInside" id="Kxm-bk-J8N"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstItem="zMf-A8-WaN" firstAttribute="centerX" secondItem="jLb-45-uKc" secondAttribute="centerX" id="DP6-oV-5sJ"/>
+                                    <constraint firstAttribute="height" constant="797" id="Oba-rz-k79"/>
+                                    <constraint firstItem="zMf-A8-WaN" firstAttribute="top" secondItem="jLb-45-uKc" secondAttribute="top" constant="-6" id="Uvd-6z-b4N"/>
+                                    <constraint firstItem="zMf-A8-WaN" firstAttribute="leading" secondItem="jLb-45-uKc" secondAttribute="leadingMargin" id="fFQ-zy-JlN"/>
+                                    <constraint firstAttribute="bottom" secondItem="zMf-A8-WaN" secondAttribute="bottom" id="lSF-RE-7mm"/>
+                                    <constraint firstItem="zMf-A8-WaN" firstAttribute="trailing" secondItem="jLb-45-uKc" secondAttribute="trailingMargin" id="p7m-Zq-Axm"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="txW-aZ-Bet"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jLb-45-uKc" firstAttribute="centerX" secondItem="st7-ak-Xw6" secondAttribute="centerX" id="J9X-6h-C4X"/>
+                            <constraint firstItem="jLb-45-uKc" firstAttribute="top" secondItem="txW-aZ-Bet" secondAttribute="top" constant="45" id="Ji2-Vs-hJP"/>
+                            <constraint firstItem="jLb-45-uKc" firstAttribute="leading" secondItem="txW-aZ-Bet" secondAttribute="leading" id="XbO-YI-Vgm"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8nT-La-TMm"/>
                     <connections>
@@ -1779,13 +1805,13 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
