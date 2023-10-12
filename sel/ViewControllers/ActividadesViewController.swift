@@ -11,10 +11,16 @@ import UIKit
 
 class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
     
+    var actId: String = "1"
+     var userId: String {
+         return UserDefaults.standard.string(forKey: "userId") ?? ""
+     }
     
     @IBOutlet var viewBg: UIView!
     @IBOutlet weak var textView1: UITextView!
 
+    
+    
     
     @IBAction func startUp(_ sender: Any) {
         selectFile()
@@ -25,6 +31,18 @@ class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FileTransferUtility.shared.checkFileExists(userId: userId, activityId: actId) { result in
+                switch result {
+                case .success(let fileExists):
+                    if fileExists {
+                        self.downloadAndDisplayFile()
+                    } else {
+                        self.showUploadOption()
+                    }
+                case .failure(let error):
+                    print("Error checking file existence: \(error)")
+                }
+            }
         
         viewBg.backgroundColor = UIColor(named: "azulTec")
         
@@ -141,18 +159,54 @@ class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
     }
     
     //extension ActividadesViewController: UIDocumentPickerDelegate {
-        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-            guard let selectedFileURL = urls.first else {
-                return
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let selectedFileURL = urls.first else {
+            return
+        }
+
+        FileTransferUtility.shared.uploadFile(userId: userId, activityId: actId, fileURL: selectedFileURL) { result in
+            switch result {
+            case .success():
+                print("File uploaded successfully")
+                self.downloadAndDisplayFile()
+            case .failure(let error):
+                print("Error uploading file: \(error)")
             }
+        }
+    }
+
 
             // Here, you can handle the selected file (e.g., upload it to a server, process it, etc.)
             // selectedFileURL contains the URL of the selected file.
-        }
 
         func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
             // This function is called when the user cancels the file selection.
         }
+
+
+    func downloadAndDisplayFile() {
+        FileTransferUtility.shared.downloadFile(userId: userId, activityId: actId) { result in
+            switch result {
+            case .success(let fileURL):
+                // Display the file using fileURL
+                print("File downloaded: \(fileURL)")
+            case .failure(let error):
+                print("Error downloading file: \(error)")
+            }
+        }
+    }
+    func showUploadOption() {
+        let alert = UIAlertController(title: "Upload File", message: "No file found for this activity. Would you like to upload one?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Upload", style: .default) { _ in
+            self.selectFile()
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
+}
+
+
+
 
 
 
