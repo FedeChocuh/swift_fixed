@@ -8,9 +8,10 @@
 import UIKit
 
 class ViewCuestFinal: UIViewController {
-
-       
     
+    
+    
+    @IBOutlet weak var labelTipoPregunta: UILabel!
     
     @IBOutlet weak var barraProgreso: UIProgressView!
     
@@ -32,81 +33,8 @@ class ViewCuestFinal: UIViewController {
     var engine=EcomplexityEngine()
     var userResponsesController = UserResponsesController()
     
-
-    /*
-    struct Question: Codable {
-        var id: Int
-        var question: String
-        var type: String
-    }
-
-    struct Answer: Codable {
-        var question: Question
-        var answer: Int
-    }
-
-    struct UserResponses: Codable {
-        var user: String
-        var responses: [Answer]
-    }
-
-    enum QuestionError: LocalizedError {
-        case serverError
-        case itemNotFound
-        
-        var errorDescription: String? {
-            switch self {
-            case .serverError:
-                return "A server error occurred."
-            case .itemNotFound:
-                return "The item was not found."
-            }
-        }
-    }
-
-    enum UserResponsesError: LocalizedError {
-        case serverError
-        case itemNotFound
-        
-        var errorDescription: String? {
-            switch self {
-            case .serverError:
-                return "A server error occurred."
-            case .itemNotFound:
-                return "The item was not found."
-            }
-        }
-    }
+    let defaults = UserDefaults.standard
     
-    extension Question {
-        static func fetchQuestions() async throws -> [Question] {
-            let url = URL(string: "http://localhost:3000/questions")!
-            let (data, response) = try await URLSession.shared.data(from: url)
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                throw QuestionError.serverError
-            }
-            let questions = try JSONDecoder().decode([Question].self, from: data)
-            return questions
-        }
-    }
-    
-    class UserResponsesController {
-        func insertUserResponses(newUserResponses: UserResponses) async throws {
-            let url = URL(string: "http://localhost:3000/questions_results")!
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            let jsonData = try JSONEncoder().encode(newUserResponses)
-            request.httpBody = jsonData
-            
-            let (data, response) = try await URLSession.shared.data(for: request)
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                throw UserResponsesError.serverError
-            }
-        }
-    }
-
-     
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,13 +43,12 @@ class ViewCuestFinal: UIViewController {
         Task{
             do{
                 let questions = try await Question.fetchQuestions()
-                updateUI(with: [questions])
+                updateUI(with: questions)
             }catch{
                 displayError(QuestionError.itemNotFound, title: "No se pudo accer a las preguntas")
             }
         }
     }
-    
     
     func estiloBotones(){
         
@@ -137,56 +64,59 @@ class ViewCuestFinal: UIViewController {
         buttonDesacuerdo.layer.borderWidth = 1
         buttonDesacuerdo.layer.borderColor = UIColor.black.cgColor
         
-        buttonNiAcuerdoNiDesacuerdo.tintColor = UIColor.white
-        buttonNiAcuerdoNiDesacuerdo.layer.cornerRadius = 25
-        buttonNiAcuerdoNiDesacuerdo.clipsToBounds = true
-        buttonNiAcuerdoNiDesacuerdo.layer.borderWidth = 1
-        buttonNiAcuerdoNiDesacuerdo.layer.borderColor = UIColor.black.cgColor
+        buttonNideacuerdoNidesacuerdo.tintColor = UIColor.white
+        buttonNideacuerdoNidesacuerdo.layer.cornerRadius = 25
+        buttonNideacuerdoNidesacuerdo.clipsToBounds = true
+        buttonNideacuerdoNidesacuerdo.layer.borderWidth = 1
+        buttonNideacuerdoNidesacuerdo.layer.borderColor = UIColor.black.cgColor
         
-        buttonAcuerdo.tintColor = UIColor.white
-        buttonAcuerdo.layer.cornerRadius = 25
-        buttonAcuerdo.clipsToBounds = true
-        buttonAcuerdo.layer.borderWidth = 1
-        buttonAcuerdo.layer.borderColor = UIColor.black.cgColor
+        buttonDeacuerdo.tintColor = UIColor.white
+        buttonDeacuerdo.layer.cornerRadius = 25
+        buttonDeacuerdo.clipsToBounds = true
+        buttonDeacuerdo.layer.borderWidth = 1
+        buttonDeacuerdo.layer.borderColor = UIColor.black.cgColor
         
-        buttonTotalmenteAcuerdo.tintColor = UIColor.white
-        buttonTotalmenteAcuerdo.layer.cornerRadius = 25
-        buttonTotalmenteAcuerdo.clipsToBounds = true
-        buttonTotalmenteAcuerdo.layer.borderWidth = 1
-        buttonTotalmenteAcuerdo.layer.borderColor = UIColor.black.cgColor
+        buttonTotalmenteDeacuerdo.tintColor = UIColor.white
+        buttonTotalmenteDeacuerdo.layer.cornerRadius = 25
+        buttonTotalmenteDeacuerdo.clipsToBounds = true
+        buttonTotalmenteDeacuerdo.layer.borderWidth = 1
+        buttonDeacuerdo.layer.borderColor = UIColor.black.cgColor
         labelTipoPregunta.isEnabled = false
         
-
+        
     }
     
     func updateUI(with questions:Questions){
         DispatchQueue.main.async {
             self.engine.initialize(q: questions)
             self.barraProgreso.progress = self.engine.getProgress()
-            self.labelPregunta.text = self.engine.getTextQuestion()
+            self.pregunta.text = self.engine.getTextQuestion()
+            self.numPregunta.text = String(self.engine.getId())
             self.labelTipoPregunta.text = self.engine.getTypeQuestion()
-            self.userResponses.user = "user@tec.mx"
         }
     }
     
+    
     func displayError(_ error: Error, title: String) {
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
+    }
     
     
-    @IBAction func userAnswer(_ sender: UIButton) {
+    @IBAction func userAnswer(_ sender: Any) {
+        let userId = defaults.integer(forKey: "user_id")
         let answer = sender.titleLabel?.text
-        let question = Question(id: engine.getId(),question: engine.getTextQuestion(), type: engine.getTypeQuestion())
-        var ans = Answer(question: question, answer: 0)
+        let questionid = engine.getId()
+        // let question = Question(id: engine.getId(),question: engine.getTextQuestion(), type: engine.getTypeQuestion(),display: engine.getDisplay())
+        var ans = Answer(userId: userId, questionId: engine.getId(), answer: 0)
         switch answer!{
-        case let str where str.contains("Nada de acuerdo"):
+        case let str where str.contains("Totalmente en desacuerdo"):
             ans.answer = 1
             //print("Nada de acuerdo")
-        case let str where str.contains("Poco de acuerdo"):
+        case let str where str.contains("En desacuerdo"):
             ans.answer = 2
             //print("Poco de acuerdo")
         case let str where str.contains("Ni de acuerdo ni desacuerdo"):
@@ -198,28 +128,28 @@ class ViewCuestFinal: UIViewController {
         default:
             ans.answer = 5
             //print("Muy de acuerdo")
+            
         }
-        userResponses.responses.append(ans)
+        
         //sender.backgroundColor = UIColor.green
-        buttonTotalmenteAcuerdo.isEnabled = false
-        buttonNiAcuerdoNiDesacuerdo.isEnabled = false
-        buttonAcuerdo.isEnabled = false
+        buttonTotalmenteDeacuerdo.isEnabled = false
+        buttonNideacuerdoNidesacuerdo.isEnabled = false
+        buttonDeacuerdo.isEnabled = false
         buttonTotalmenteDesacuerdo.isEnabled = false
         buttonDesacuerdo.isEnabled = false
-        
-        if engine.nextQuestion(){
-            Task{
-                do{
-                    try await userResponsesController.insertUserResponses(newUserResponses: userResponses)
-                    updateUserResponses(title: "Las respuestas fueron almacenas con éxito en el servidor")
-                }catch{
-                    displayErrorUserResponses(UserResponsesError.itemNotFound, title: "No se pudo accer almacenar las respuestas en la base de datos")
-                }
+        Task{
+            do{
+                engine.nextQuestion()
+                try await userResponsesController.insertUserResponses(newUserResponses: ans)
+                updateUserResponses(title: "Las respuestas fueron almacenas con éxito en el servidor")
+            }catch{
+                displayErrorUserResponses(UserResponsesError.itemNotFound, title: "No se pudo accer almacenar las respuestas en la base de datos")
             }
-            
-        }else{
-            Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: Selector("nextQuestion"), userInfo: nil, repeats: false)
         }
+        
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector("nextQuestion"), userInfo: nil, repeats: false)
+        
+        
     }
     
     func updateUserResponses(title: String){
@@ -230,16 +160,44 @@ class ViewCuestFinal: UIViewController {
             self.present(alert,animated: true)
         }
     }
-     */
     
     func displayErrorUserResponses(_ error: Error, title: String) {
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Continuar", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continuar", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
+    }
     @objc func nextQuestion(){
+        pregunta.text = engine.getTextQuestion()
+        barraProgreso.progress = engine.getProgress()
+        labelTipoPregunta.text = engine.getTypeQuestion()
+        numPregunta.text = String(engine.getId())
+        
+        buttonTotalmenteDeacuerdo.isEnabled = true
+        buttonNideacuerdoNidesacuerdo.isEnabled = true
+        buttonDesacuerdo.isEnabled = true
+        buttonDesacuerdo.isEnabled = true
+        buttonTotalmenteDesacuerdo.isEnabled = true
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    func displayErrorUserResponsess(_ error: Error, title: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continuar", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    @objc func nextQuestionn(){
         pregunta.text = engine.getTextQuestion()
         barraProgreso.progress = engine.getProgress()
         numPregunta.text = engine.getTypeQuestion()
@@ -249,5 +207,13 @@ class ViewCuestFinal: UIViewController {
         buttonNideacuerdoNidesacuerdo.isEnabled = true
         buttonDeacuerdo.isEnabled = true
         buttonTotalmenteDeacuerdo.isEnabled = true
+    }
+    
+    @IBAction func performNextPage(_ sender: Any) {
+        let questionID = defaults.integer(forKey: "questionid")
+        if questionID == 50 {
+            self.performSegue(withIdentifier: "ToResults", sender: self)
+        }
+        
     }
 }
