@@ -139,7 +139,6 @@ class ViewCuestInicial: UIViewController {
             do{
                 engine.nextQuestion()
                 try await userResponsesController.insertUserResponses(newUserResponses: ans)
-                updateUserResponses(title: "Las respuestas fueron almacenas con éxito en el servidor")
             }catch{
                 displayErrorUserResponses(UserResponsesError.itemNotFound, title: "No se pudo accer almacenar las respuestas en la base de datos")
             }
