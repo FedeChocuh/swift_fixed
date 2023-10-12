@@ -571,11 +571,11 @@
             <objects>
                 <viewController id="7Zh-xx-OQF" customClass="ActividadesMain" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ni2-rp-G27">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5D3-WZ-TQq">
-                                <rect key="frame" x="0.0" y="45" width="393" height="797"/>
+                                <rect key="frame" x="0.0" y="45" width="393" height="807"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2w-uk-Y2w">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1800"/>
@@ -1054,7 +1054,7 @@
             <objects>
                 <viewController id="quZ-N2-wMw" customClass="ViewPerfil" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LL9-FB-Nyw">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="daN-jX-Tqi">
@@ -1358,7 +1358,7 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <segue destination="rzp-Kf-wMM" kind="show" id="S4l-Tv-BLQ"/>
+                                                    <action selector="buttonPressed:" destination="hKx-1l-isx" eventType="touchUpInside" id="84o-e4-pJ7"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1419,6 +1419,7 @@
                         <outlet property="viewInvestigacion" destination="Pwf-0n-6U6" id="QdN-Q2-vER"/>
                         <outlet property="viewPasionyCompromiso" destination="0FQ-JD-LuW" id="mHu-ww-zE4"/>
                         <outlet property="viewPensamiento" destination="cFU-ZE-1jF" id="uQX-bg-mBB"/>
+                        <segue destination="rzp-Kf-wMM" kind="custom" id="XP9-1H-WtG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A1H-yr-EQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1428,7 +1429,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Ard-9c-pvH">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rzp-Kf-wMM" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="rzp-Kf-wMM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="qao-Yq-KCm"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Vg-Za-2Sa">

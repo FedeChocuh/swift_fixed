@@ -44,10 +44,7 @@ class ViewPerfil: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         estiloBotones()
-        viewMain.backgroundColor = UIColor(named:"azulTec")
         self.navigationItem.hidesBackButton = true
-
-        
         
     }
     

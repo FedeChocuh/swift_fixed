@@ -9,7 +9,7 @@ import UIKit
 
 class ViewCuestFinal: UIViewController {
     
-    
+    /*
     
     @IBOutlet weak var labelTipoPregunta: UILabel!
     
@@ -108,7 +108,9 @@ class ViewCuestFinal: UIViewController {
     
     @IBAction func userAnswer(_ sender: Any) {
         let userId = defaults.integer(forKey: "user_id")
-        let answer = sender.titleLabel?.text
+        if let button = sender as? UIButton {
+            let answer = button.titleLabel?.text
+        }
         let questionid = engine.getId()
         // let question = Question(id: engine.getId(),question: engine.getTextQuestion(), type: engine.getTypeQuestion(),display: engine.getDisplay())
         var ans = Answer(userId: userId, questionId: engine.getId(), answer: 0)
@@ -216,4 +218,5 @@ class ViewCuestFinal: UIViewController {
         }
         
     }
+     */
 }
