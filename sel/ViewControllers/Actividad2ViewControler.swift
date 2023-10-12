@@ -7,11 +7,14 @@
 
 import UIKit
 
-class Actividad2ViewControler: UIViewController{
+class Actividad2ViewControler: UIViewController, UIDocumentPickerDelegate {
     
     @IBOutlet var viewBg: UIView!
     @IBOutlet weak var textView: UITextView!
     
+    @IBAction func startUp(_ sender: Any) {
+        selectFile()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,57 +22,49 @@ class Actividad2ViewControler: UIViewController{
         
         let bulletPoint: String = "\u{2022}" // El carácter de viñeta
                 
-        let firstNormalText = "1.  Reflexiona acerca de los problemas que identificaste en la Actividad 1. Teniéndolos en mente, haz una investigación sobre los Objetivos de Desarrollo Sostenible. Te sugerimos los siguientes enlaces:"
+        let firstNormalText = "1.  Reflexiona acerca de los problemas que identificaste en la Actividad 1. Teniéndolos en mente, haz una investigación sobre los Objetivos de Desarrollo Sostenible. Te sugerimos los siguientes enlaces y actividades Posteriores:"
         
         let firstListText = """
         \n\(bulletPoint) <a href="https://www.youtube.com/watch?v=MCKH5xk8X-g">Vínculo a Youtube?</a>
-        \(bulletPoint) <a href="https://www.undp.org/es/sustainable-development-goals"> Vínculo a UNDP </a>
-        """
-        
-        let secondNormalText = "\n Revisa cada uno de los objetivos y sus metas e investiga como es que estos se relacionan con los problemas que identificaste."
-        
-        let secondListText = """
+        \(bulletPoint) <a href="https://www.undp.org/es/sustainable-development-goals"> Vínculo a UNDP</a>
         \n\(bulletPoint) ¿Cuál es el ODS que consideras se relaciona mejor con cada problematica?
         \(bulletPoint) ¿Cómo se relaciona con estos temas?
         \(bulletPoint) ¿Hay alguna meta de dicho ODS que de manera concreta hable de esta relación?
         """
         
-
-        let thirdNormalText = "\n2.Los ODS nos permiten comprender como es que estas problemáticas son consideradas Retos y Desafíos para todo el Mundo, sin embargo, es importante que podamos conocer cuál es la situación actual. Como segunda parte de esta actividad, te pedimos que de las 5 problemáticas identificadas en la actividad 1, elijas 3 y realices una investigación que responda las siguientes preguntas:"
+        let secondNormalText = "\n2.Los ODS nos permiten comprender como es que estas problemáticas son consideradas Retos y Desafíos para todo el Mundo, sin embargo, es importante que podamos conocer cuál es la situación actual. Como segunda parte de esta actividad, te pedimos que de las 5 problemáticas identificadas en la actividad 1, elijas 3 y realices una investigación que responda las siguientes preguntas:"
         
-        let thirdListText = """
+        let secondListText = """
         \n\(bulletPoint) ¿Cuál es la situación de estas problemáticas a nivel internacional, regional, nacional y local?
         \(bulletPoint) ¿Hay registro de afectaciones en la vida de las personas?
         \(bulletPoint) ¿Qué tanto afecta a tu localidad?
         """
         
         
-        let fourthNormalText = "\n¿Con esta investigación, reflexiona sobre cuál es la problemática que consideras valioso atender. Debes conseguir elegir 1, para apoyarte en este proceso de elección, te sugerimos considerar:"
+        let thirdNormalText = "\n¿Con esta investigación, reflexiona sobre cuál es la problemática que consideras valioso atender. Debes conseguir elegir 1, para apoyarte en este proceso de elección, te sugerimos considerar:"
 
-        let fourthListText = """
+        let thirdListText = """
         \n\(bulletPoint) Que sea un problema que afecte directamente a tu entorno
         \(bulletPoint) Que tenga un impacto en la calidad de vida de las personas
         \(bulletPoint) Que sea una problemática cercana a nosotros o a alguien que conozcamos
         """
         
-        let fifthNormalText = "\n 3.  Como último punto de esta actividad, y habiendo elegido 1 problemática, es necesario que hagas un Árbol de Causas y Consecuencias."
-       
-        let sixthNormalText = "\n Los problemas suelen ser como árboles, con causas que se enraízan en la sociedad y con ramas y hojas que se dividen en múltiples consecuencias que afectan a muchas personas, realidades y entornos. Tomemos de ejemplo la contaminación, la cual puede tener múltiples causas, y sus consecuencias pueden impactar tanto al medioambiente, como a las personas, el clima, la economía, el desarrollo de las ciudades, la salud, etc. Para poder hacer algo al respecto, es importante poder identificar qué es lo que está detonando los problemas, ya que solo así se podrán atender posibles consecuencias. \n Una vez hecha esta reflexión, haz una investigación que considere por lo menos 3 posibles causas del problema seleccionado, así como 5 posibles consecuencias. Es relevante que se tomes en cuenta sus consecuencias en el entorno, la sociedad, las personas, la economía u cualquier otra área de abordaje.\n Aunque se sugiere que la investigación sea documental, también es posible que te apoyes con entrevistas a especialistas, profesores, familiares o conocedores del tema. \n Una vez se haya hecho esta investigación, podrás hacer tu árbol de causas y consecuencias. El tronco del árbol es el problema seleccionado; las raíces son las causas; las ramas y hojas son las consecuencias. Puedes dividir las consecuencias por su impacto internacional, nacional y local. \n Se sugiere que esta representación sea gráfica y con base en las herramientas propias que tengas. \n\n En la parte inferior del árbol se sugiere respondas lo siguiente:"
+        let fourthNormalText = "\n 3.  Como último punto de esta actividad, y habiendo elegido 1 problemática, es necesario que hagas un Árbol de Causas y Consecuencias.\n\n Los problemas suelen ser como árboles, con causas que se enraízan en la sociedad y con ramas y hojas que se dividen en múltiples consecuencias que afectan a muchas personas, realidades y entornos. Tomemos de ejemplo la contaminación, la cual puede tener múltiples causas, y sus consecuencias pueden impactar tanto al medioambiente, como a las personas, el clima, la economía, el desarrollo de las ciudades, la salud, etc. Para poder hacer algo al respecto, es importante poder identificar qué es lo que está detonando los problemas, ya que solo así se podrán atender posibles consecuencias. \n Una vez hecha esta reflexión, haz una investigación que considere por lo menos 3 posibles causas del problema seleccionado, así como 5 posibles consecuencias. Es relevante que se tomes en cuenta sus consecuencias en el entorno, la sociedad, las personas, la economía u cualquier otra área de abordaje.\n Aunque se sugiere que la investigación sea documental, también es posible que te apoyes con entrevistas a especialistas, profesores, familiares o conocedores del tema. \n Una vez se haya hecho esta investigación, podrás hacer tu árbol de causas y consecuencias. El tronco del árbol es el problema seleccionado; las raíces son las causas; las ramas y hojas son las consecuencias. Puedes dividir las consecuencias por su impacto internacional, nacional y local. \n Se sugiere que esta representación sea gráfica y con base en las herramientas propias que tengas. \n\n En la parte inferior del árbol se sugiere respondas lo siguiente:"
         
-        let fifthListText = """
+        let fourthListText = """
         \n\(bulletPoint) A partir de esta información, ¿Por qué es importante atender este problema?
         """
         
         
-        let seventhNormalText = "\n¿Qué debes entregar?"
+        let fifthNormalText = "\n¿Qué debes entregar?"
         
-        let seventhListText = """
+        let fifthListText = """
         \n\(bulletPoint) Relación entre ODS y problemas ambientales
         \(bulletPoint) Investigación sobre la situación internacional, nacional y local de las problemáticas
         \(bulletPoint) Árbol de causas y consecuencias del problema seleccionado
         """
         
-        let fullText = "\(firstNormalText)\(firstListText)\(secondNormalText)\(secondListText)\(thirdNormalText)\(thirdListText)\(fourthNormalText)\(fourthListText)"
+        let fullText = "\(firstNormalText)\(firstListText)\(secondNormalText)\(secondListText)\(thirdNormalText)\(thirdListText)\(fourthNormalText)\(fourthListText)\(fifthNormalText)\(fifthListText)"
         
         let attributedText = NSMutableAttributedString(string: fullText)
         
@@ -137,5 +132,28 @@ class Actividad2ViewControler: UIViewController{
                         
         textView.attributedText = attributedText
     }
+    
+    func selectFile() {
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.data])
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false // Change to true if you want to allow multiple file selection
+        
+        present(documentPicker, animated: true, completion: nil)
+    }
+    
+    //extension ActividadesViewController: UIDocumentPickerDelegate {
+        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+            guard let selectedFileURL = urls.first else {
+                return
+            }
+
+            // Here, you can handle the selected file (e.g., upload it to a server, process it, etc.)
+            // selectedFileURL contains the URL of the selected file.
+        }
+
+        func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+            // This function is called when the user cancels the file selection.
+        }
+    
 }
 
