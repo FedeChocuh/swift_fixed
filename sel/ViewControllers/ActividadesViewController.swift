@@ -31,19 +31,6 @@ class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FileTransferUtility.shared.checkFileExists(userId: userId, activityId: actId) { result in
-                switch result {
-                case .success(let fileExists):
-                    if fileExists {
-                        self.downloadAndDisplayFile()
-                    } else {
-                        self.showUploadOption()
-                    }
-                case .failure(let error):
-                    print("Error checking file existence: \(error)")
-                }
-            }
-        
         viewBg.backgroundColor = UIColor(named: "azulTec")
         
         let bulletPoint: String = "\u{2022}" // El carácter de viñeta
@@ -164,7 +151,7 @@ class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
             return
         }
 
-        FileTransferUtility.shared.uploadFile(userId: userId, activityId: actId, fileURL: selectedFileURL) { result in
+        FileTransferUtility.shared.uploadFile(url: selectedFileURL, userId: userId, activityId: actId) { result in
             switch result {
             case .success():
                 print("File uploaded successfully")
