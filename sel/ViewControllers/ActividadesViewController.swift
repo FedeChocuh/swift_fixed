@@ -20,6 +20,7 @@ class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
     @IBOutlet weak var textView1: UITextView!
 
     
+    @IBOutlet weak var imagenact: UIImageView!
     
     
     @IBAction func startUp(_ sender: Any) {
@@ -31,6 +32,7 @@ class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        downloadAndDisplayFile()
         viewBg.backgroundColor = UIColor(named: "azulTec")
         
         let bulletPoint: String = "\u{2022}" // El carácter de viñeta
@@ -175,13 +177,21 @@ class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
         FileTransferUtility.shared.downloadFile(userId: userId, activityId: actId) { result in
             switch result {
             case .success(let fileURL):
-                // Display the file using fileURL
-                print("File downloaded: \(fileURL)")
+                // Load the image from the file URL
+                if let data = try? Data(contentsOf: fileURL), let image = UIImage(data: data) {
+                    // Update UI on the main thread
+                    DispatchQueue.main.async {
+                        self.imagenact.image = image
+                    }
+                } else {
+                    print("Failed to load image from \(fileURL)")
+                }
             case .failure(let error):
                 print("Error downloading file: \(error)")
             }
         }
     }
+
     func showUploadOption() {
         let alert = UIAlertController(title: "Upload File", message: "No file found for this activity. Would you like to upload one?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Upload", style: .default) { _ in
@@ -191,3 +201,9 @@ class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
         present(alert, animated: true)
     }
 }
+
+
+
+
+
+
