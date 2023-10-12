@@ -34,6 +34,8 @@ class ActividadesMain: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         estiloBotones()
+        self.navigationItem.hidesBackButton = true
+
     }
     
     func estiloBotones() {

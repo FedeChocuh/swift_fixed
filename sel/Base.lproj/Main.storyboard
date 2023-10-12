@@ -480,9 +480,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="performNextPage:" destination="R2M-7v-qz8" eventType="touchUpInside" id="G21-IV-Fed"/>
                                             <action selector="userAnswer:" destination="R2M-7v-qz8" eventType="touchUpInside" id="PXm-Us-fRs"/>
-                                            <segue destination="hKx-1l-isx" kind="presentation" destinationCreationSelector="ToResults" id="RAB-CM-YLM"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foc-aR-l4G">
@@ -561,11 +559,12 @@
                         <outlet property="labelNumPregunta" destination="ifq-Hp-CF5" id="3Xo-jW-YE3"/>
                         <outlet property="labelTipoPregunta" destination="rsl-fb-khF" id="oVs-qj-Eyp"/>
                         <outlet property="textviewPregunta" destination="1KI-GI-Xa3" id="0R6-ah-4p3"/>
+                        <segue destination="hKx-1l-isx" kind="show" identifier="ToResults" id="kTX-ia-2Db"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3j-wR-03u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2780.9160305343512" y="11.971830985915494"/>
+            <point key="canvasLocation" x="2947" y="12"/>
         </scene>
         <!--Actividades-->
         <scene sceneID="wij-29-u1Z">
@@ -1055,7 +1054,7 @@
             <objects>
                 <viewController id="quZ-N2-wMw" customClass="ViewPerfil" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LL9-FB-Nyw">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="daN-jX-Tqi">
@@ -1189,13 +1188,13 @@
         <!--Result Enc Inicial-->
         <scene sceneID="ahe-Ir-O6e">
             <objects>
-                <viewController id="hKx-1l-isx" customClass="resultEncInicial" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ToResults" id="hKx-1l-isx" customClass="resultEncInicial" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9zj-ie-9F6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rb6-h8-YRY">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="1090"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="1080"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppk-7b-yKD">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1100"/>
@@ -1359,7 +1358,7 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <segue destination="7Zh-xx-OQF" kind="show" id="qJn-wS-qJp"/>
+                                                    <segue destination="rzp-Kf-wMM" kind="show" id="S4l-Tv-BLQ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1408,6 +1407,7 @@
                             <constraint firstItem="rb6-h8-YRY" firstAttribute="top" secondItem="9zj-ie-9F6" secondAttribute="top" id="mQs-Q6-CH2"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="6gc-QU-Rs4"/>
                     <size key="freeformSize" width="393" height="1090"/>
                     <connections>
                         <outlet property="buttonContinue" destination="4w8-fB-MK5" id="IdS-Sv-V0N"/>
@@ -1762,7 +1762,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qJn-wS-qJp"/>
         <segue reference="d8L-qh-cL1"/>
     </inferredMetricsTieBreakers>
     <resources>

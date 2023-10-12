@@ -139,14 +139,19 @@ class ViewCuestInicial: UIViewController {
             do{
                 engine.nextQuestion()
                 try await userResponsesController.insertUserResponses(newUserResponses: ans)
-                updateUserResponses(title: "Las respuestas fueron almacenas con éxito en el servidor")
+
             }catch{
-                displayErrorUserResponses(UserResponsesError.itemNotFound, title: "No se pudo accer almacenar las respuestas en la base de datos")
+                //displayErrorUserResponses(UserResponsesError.itemNotFound, title: "No se pudo accer almacenar las respuestas en la base de datos")
+                print("holi")
             }
         }
         
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector("nextQuestion"), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: Selector("nextQuestion"), userInfo: nil, repeats: false)
         
+        if questionid == 50 {
+            self.performSegue(withIdentifier: "ToResults", sender: self)
+        }
+
         
     }
     
@@ -180,12 +185,6 @@ class ViewCuestInicial: UIViewController {
     }
     
     
-    @IBAction func performNextPage(_ sender: Any) {
-        let questionID = defaults.integer(forKey: "questionid")
-        if questionID == 50 {
-            self.performSegue(withIdentifier: "ToResults", sender: self)
-        }
-    }
 }
     
 
