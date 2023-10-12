@@ -13,7 +13,7 @@ class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
     
     var actId: String = "1"
      var userId: String {
-         return UserDefaults.standard.string(forKey: "userId") ?? ""
+         return UserDefaults.standard.string(forKey: "user_id") ?? ""
      }
     
     @IBOutlet var viewBg: UIView!
@@ -204,6 +204,7 @@ class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
         present(alert, animated: true)
     }
 }
+
 
 
 

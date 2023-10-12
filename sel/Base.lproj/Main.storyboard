@@ -18,34 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="nH8-bI-R8q">
-                                <rect key="frame" x="50" y="153" width="293" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="UYS-Cm-C4e"/>
-                                </constraints>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Waw-TF-tEH">
-                                <rect key="frame" x="20" y="453" width="353" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="xIp-dg-8ZE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="azulNormal" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVE-It-Tms">
-                                <rect key="frame" x="40" y="533" width="313" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="qwR-jj-uhe"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Ingresar"/>
-                                <connections>
-                                    <action selector="Access:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Qb-eT-ivl"/>
-                                    <segue destination="1nd-20-RhU" kind="presentation" identifier="IngresarToPreEncuesta" modalPresentationStyle="fullScreen" id="DPn-uX-3vl"/>
-                                </connections>
-                            </button>
+<imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="nH8-bI-R8q">
+    <rect key="frame" x="50" y="50" width="293" height="100"/>
+    <constraints>
+        <constraint firstAttribute="height" constant="100" id="UYS-Cm-C4e"/>
+    </constraints>
+</imageView>
+
+<textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Waw-TF-tEH">
+    <rect key="frame" x="20" y="350" width="353" height="50"/>
+    <constraints>
+        <constraint firstAttribute="height" constant="50" id="xIp-dg-8ZE"/>
+    </constraints>
+    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+    <textInputTraits key="textInputTraits" textContentType="password"/>
+</textField>
+
+<button opaque="NO" contentMode="scaleToFill" restorationIdentifier="azulNormal" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVE-It-Tms">
+    <rect key="frame" x="40" y="430" width="313" height="50"/>
+    <constraints>
+        <constraint firstAttribute="height" constant="50" id="qwR-jj-uhe"/>
+    </constraints>
+    <state key="normal" title="Button"/>
+    <buttonConfiguration key="configuration" style="filled" title="Ingresar"/>
+    <connections>
+        <action selector="Access:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Qb-eT-ivl"/>
+        <segue destination="1nd-20-RhU" kind="presentation" identifier="IngresarToPreEncuesta" modalPresentationStyle="fullScreen" id="DPn-uX-3vl"/>
+    </connections>
+</button>
+
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="azulFuerte" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXN-z6-Yit">
-                                <rect key="frame" x="40" y="708" width="313" height="50"/>
+                                <rect key="frame" x="40" y="742" width="313" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Azj-zQ-dUX"/>
                                 </constraints>
@@ -56,19 +59,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Eres nuevo en SEL4C?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJf-hL-Ygk">
-                                <rect key="frame" x="106.66666666666669" y="657" width="180" height="21"/>
+                                <rect key="frame" x="106.66666666666669" y="691" width="180" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre de usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nPT-yY-0RY">
-                                <rect key="frame" x="20" y="373" width="353" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="beV-DV-rrE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="username"/>
-                            </textField>
+<textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre de usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nPT-yY-0RY">
+    <rect key="frame" x="20" y="270" width="353" height="50"/>
+    <constraints>
+        <constraint firstAttribute="height" constant="50" id="beV-DV-rrE"/>
+    </constraints>
+    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+    <textInputTraits key="textInputTraits" textContentType="username"/>
+</textField>
+
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -395,7 +399,9 @@
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsl-fb-khF">
                                 <rect key="frame" x="30" y="59.999999999999993" width="263" height="125.33333333333331"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="35"/>
+
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1450,10 +1456,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="paperplane.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5Sk-xT-JAF">
-                                <rect key="frame" x="163" y="779" width="66" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1b8-DA-YS0" customClass="Actividades" customModule="sel" customModuleProvider="target">
                                 <rect key="frame" x="16" y="171" width="361" height="580"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1484,6 +1486,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZn-fH-9wm">
+                                <rect key="frame" x="124" y="787" width="146" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Subir Archivo(s)"/>
+                                <connections>
+                                    <action selector="startUp:" destination="CzU-Cf-qmk" eventType="touchUpInside" id="9dt-qc-ndb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ob2-T3-Yvd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1589,10 +1600,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="paperplane.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kLl-Y5-Ymx">
-                                <rect key="frame" x="162" y="778.66666666666652" width="66" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSn-MT-6yb">
+                                <rect key="frame" x="123" y="787" width="146" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Subir Archivo(s)"/>
+                                <connections>
+                                    <action selector="startUp:" destination="Tq5-Ug-qUA" eventType="touchUpInside" id="RhS-es-8RP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HLJ-ll-T7R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1637,10 +1653,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="paperplane.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ju1-Ok-8Lz">
-                                <rect key="frame" x="163" y="778.66666666666652" width="66" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avF-at-JEI">
+                                <rect key="frame" x="124" y="787" width="146" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Subir Archivo(s)"/>
+                                <connections>
+                                    <action selector="startUp:" destination="Khs-qi-mb0" eventType="touchUpInside" id="trU-ir-Fmm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pzT-ck-acG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1757,11 +1778,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="d8L-qh-cL1"/>
+
+        <segue reference="OVT-Kb-wDT"/>
+
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="logo" width="1167" height="403"/>
+
         <image name="paperplane.fill" catalog="system" width="128" height="119"/>
         <image name="perfil" width="51" height="50"/>
         <namedColor name="azulFuerte">
