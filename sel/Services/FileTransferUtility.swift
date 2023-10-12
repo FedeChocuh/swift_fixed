@@ -15,8 +15,8 @@ class FileTransferUtility {
     private init() {}
     
     func checkFileExists(userId: String, activityId: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        guard let checkURL = URL(string: "http://your-server.com/activities/file-exists/\(userId)/\(activityId)") else {
-            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
+        guard let checkURL = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/activities/download\(userId)/\(activityId)") else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid check URL"])))
             return
         }
         
@@ -25,27 +25,30 @@ class FileTransferUtility {
                 completion(.failure(error))
                 return
             }
-            guard let data = data else {
-                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid response"])))
                 return
             }
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                guard let dictionary = json as? [String: Any],
-                      let fileExists = dictionary["fileExists"] as? Bool else {
-                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid JSON format"])))
-                    return
-                }
-                completion(.success(fileExists))
-            } catch {
-                completion(.failure(error))
+            
+            switch httpResponse.statusCode {
+            case 200:
+                // The file exists
+                completion(.success(true))
+            case 404:
+                // The file does not exist
+                completion(.success(false))
+            default:
+                // Some other status code was returned
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unexpected status code: \(httpResponse.statusCode)"])))
             }
         }
         task.resume()
     }
+
+
     
     func uploadFile(userId: String, activityId: String, fileURL: URL, completion: @escaping (Result<Void, Error>) -> Void) {
-        guard let uploadURL = URL(string: "http://your-server.com/activities/upload/\(userId)/\(activityId)") else {
+        guard let uploadURL = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/activities/upload/\(userId)/\(activityId)") else {
             completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid upload URL"])))
             return
         }
@@ -80,7 +83,7 @@ class FileTransferUtility {
     }
     
     func downloadFile(userId: String, activityId: String, completion: @escaping (Result<URL, Error>) -> Void) {
-        guard let downloadURL = URL(string: "http://your-server.com/activities/download/\(userId)/\(activityId)") else {
+        guard let downloadURL = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/activities/download/\(userId)/\(activityId)") else {
             completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid download URL"])))
             return
         }

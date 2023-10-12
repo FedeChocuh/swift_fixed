@@ -136,15 +136,13 @@ class ViewCuestInicial: UIViewController {
         buttonTotalmenteDesacuerdo.isEnabled = false
         buttonDesacuerdo.isEnabled = false
         Task{
-            do{
-                print("xxxx")
-                try await userResponsesController.insertUserResponses(newUserResponses: ans)
-                updateUserResponses(title: "Las respuestas fueron almacenas con éxito en el servidor")
-                engine.nextQuestion()
-            }catch{
-                displayErrorUserResponses(UserResponsesError.itemNotFound, title: "No se pudo accer almacenar las respuestas en la base de datos")
-            }
-        }
+                    do{
+                        try await userResponsesController.insertUserResponses(newUserResponses: ans)
+                        updateUserResponses(title: "Las respuestas fueron almacenas con éxito en el servidor")
+                    }catch{
+                        displayErrorUserResponses(UserResponsesError.itemNotFound, title: "No se pudo accer almacenar las respuestas en la base de datos")
+                    }
+                }
         
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector("nextQuestion"), userInfo: nil, repeats: false)
         

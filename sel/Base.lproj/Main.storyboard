@@ -572,11 +572,11 @@
             <objects>
                 <viewController id="7Zh-xx-OQF" customClass="ActividadesMain" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ni2-rp-G27">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5D3-WZ-TQq">
-                                <rect key="frame" x="0.0" y="45" width="393" height="807"/>
+                                <rect key="frame" x="0.0" y="45" width="393" height="797"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2w-uk-Y2w">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1800"/>
@@ -1030,6 +1030,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Actividades" id="9a3-o4-9FX"/>
+                    <navigationItem key="navigationItem" id="7M4-VX-yu4"/>
                     <connections>
                         <outlet property="ViewCierre" destination="CRR-3S-xUw" id="JEs-gh-JT2"/>
                         <outlet property="buttonAct1" destination="thx-Jb-eDO" id="y9Y-NP-YfF"/>
@@ -1190,7 +1191,7 @@
             <objects>
                 <viewController id="hKx-1l-isx" customClass="resultEncInicial" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9zj-ie-9F6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="1090"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rb6-h8-YRY">
@@ -1357,6 +1358,9 @@
                                                 <buttonConfiguration key="configuration" style="filled" title="Continuar">
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="7Zh-xx-OQF" kind="show" id="qJn-wS-qJp"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="azulTec"/>
@@ -1404,7 +1408,7 @@
                             <constraint firstItem="rb6-h8-YRY" firstAttribute="top" secondItem="9zj-ie-9F6" secondAttribute="top" id="mQs-Q6-CH2"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="393" height="1100"/>
+                    <size key="freeformSize" width="393" height="1090"/>
                     <connections>
                         <outlet property="buttonContinue" destination="4w8-fB-MK5" id="IdS-Sv-V0N"/>
                         <outlet property="label1" destination="VsF-Wq-1TJ" id="MPt-e8-9jS"/>
@@ -1419,7 +1423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A1H-yr-EQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3693.8931297709923" y="20.422535211267608"/>
+            <point key="canvasLocation" x="3693.8931297709923" y="23.943661971830988"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ard-9c-pvH">
@@ -1507,44 +1511,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Act 1.- Identificación" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFw-Qe-jfZ">
-                                <rect key="frame" x="48" y="90" width="297" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMp-8Q-hrn">
-                                <rect key="frame" x="130" y="787" width="134" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Subir Archivos"/>
-                                <connections>
-                                    <action selector="startUp:" destination="0NV-vn-DKV" eventType="touchUpInside" id="Kxm-bk-J8N"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instrucciones:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPe-h2-Hxb">
-                                <rect key="frame" x="32" y="152" width="113" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmW-br-r58" customClass="Actividades" customModule="sel" customModuleProvider="target">
-                                <rect key="frame" x="16" y="199" width="361" height="566"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ILJ-It-MES">
+                                <rect key="frame" x="16" y="92" width="361" height="730"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Text View 1" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZZP-5R-kam">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="527"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Act 1.- Identificación" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFw-Qe-jfZ">
+                                        <rect key="frame" x="32.333333333333343" y="0.0" width="296.66666666666663" height="36"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instrucciones:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPe-h2-Hxb">
+                                        <rect key="frame" x="124.33333333333331" y="59.999999999999993" width="112.66666666666669" height="21.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmW-br-r58" customClass="Actividades" customModule="sel" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="105.66666666666669" width="361" height="566"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Text View 1" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZZP-5R-kam">
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="527"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMp-8Q-hrn">
+                                        <rect key="frame" x="113.66666666666669" y="695.66666666666663" width="134" height="34.333333333333371"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Subir Archivos"/>
+                                        <connections>
+                                            <action selector="startUp:" destination="0NV-vn-DKV" eventType="touchUpInside" id="Kxm-bk-J8N"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="txW-aZ-Bet"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1757,6 +1762,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="qJn-wS-qJp"/>
         <segue reference="d8L-qh-cL1"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -1774,13 +1780,13 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

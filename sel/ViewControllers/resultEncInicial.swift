@@ -72,7 +72,5 @@ class resultEncInicial: UIViewController {
         }
         
         
-        
-        
     }
 }
