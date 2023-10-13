@@ -9,9 +9,10 @@ import UIKit
 
 class ViewCuestFinal: UIViewController {
     
-    /*
+    
     
     @IBOutlet weak var labelTipoPregunta: UILabel!
+    
     
     @IBOutlet weak var barraProgreso: UIProgressView!
     
@@ -105,12 +106,10 @@ class ViewCuestFinal: UIViewController {
         }
     }
     
-    
-    @IBAction func userAnswer(_ sender: Any) {
+   
+    @IBAction func userAnswer(_ sender: UIButton) {
         let userId = defaults.integer(forKey: "user_id")
-        if let button = sender as? UIButton {
-            let answer = button.titleLabel?.text
-        }
+        let answer = sender.titleLabel?.text
         let questionid = engine.getId()
         // let question = Question(id: engine.getId(),question: engine.getTextQuestion(), type: engine.getTypeQuestion(),display: engine.getDisplay())
         var ans = Answer(userId: userId, questionId: engine.getId(), answer: 0)
@@ -130,9 +129,8 @@ class ViewCuestFinal: UIViewController {
         default:
             ans.answer = 5
             //print("Muy de acuerdo")
-            
-        }
-        
+    }
+    
         //sender.backgroundColor = UIColor.green
         buttonTotalmenteDeacuerdo.isEnabled = false
         buttonNideacuerdoNidesacuerdo.isEnabled = false
@@ -150,7 +148,9 @@ class ViewCuestFinal: UIViewController {
         }
         
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector("nextQuestion"), userInfo: nil, repeats: false)
-        
+        if questionid == 50 {
+            self.performSegue(withIdentifier: "ToResults", sender: self)
+        }
         
     }
     
@@ -185,13 +185,6 @@ class ViewCuestFinal: UIViewController {
     
     
     
-    
-    
-    
-    
-    
-    
-    
     func displayErrorUserResponsess(_ error: Error, title: String) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
@@ -211,12 +204,5 @@ class ViewCuestFinal: UIViewController {
         buttonTotalmenteDeacuerdo.isEnabled = true
     }
     
-    @IBAction func performNextPage(_ sender: Any) {
-        let questionID = defaults.integer(forKey: "questionid")
-        if questionID == 50 {
-            self.performSegue(withIdentifier: "ToResults", sender: self)
-        }
-        
-    }
-     */
+     
 }
