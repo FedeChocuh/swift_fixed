@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GoS-1e-3O9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GoS-1e-3O9">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="nH8-bI-R8q">
-                                <rect key="frame" x="50" y="153" width="293" height="100"/>
+                                <rect key="frame" x="50" y="50" width="293" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="UYS-Cm-C4e"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Waw-TF-tEH">
-                                <rect key="frame" x="20" y="453" width="353" height="50"/>
+                                <rect key="frame" x="20" y="350" width="353" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xIp-dg-8ZE"/>
                                 </constraints>
@@ -33,7 +33,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="azulNormal" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVE-It-Tms">
-                                <rect key="frame" x="40" y="533" width="313" height="50"/>
+                                <rect key="frame" x="40" y="430" width="313" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="qwR-jj-uhe"/>
                                 </constraints>
@@ -41,11 +41,12 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Ingresar"/>
                                 <connections>
                                     <action selector="Access:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Qb-eT-ivl"/>
-                                    <segue destination="1nd-20-RhU" kind="presentation" identifier="IngresarToPreEncuesta" modalPresentationStyle="fullScreen" id="DPn-uX-3vl"/>
+                                    <action selector="QuizzDone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aeY-uF-bs3"/>
+                                    <segue destination="1nd-20-RhU" kind="presentation" identifier="IngresarToPreEncuesta" modalPresentationStyle="fullScreen" id="vet-s9-nrm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="azulFuerte" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXN-z6-Yit">
-                                <rect key="frame" x="40" y="708" width="313" height="50"/>
+                                <rect key="frame" x="40" y="742" width="313" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Azj-zQ-dUX"/>
                                 </constraints>
@@ -56,13 +57,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Eres nuevo en SEL4C?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJf-hL-Ygk">
-                                <rect key="frame" x="106.66666666666669" y="657" width="180" height="21"/>
+                                <rect key="frame" x="106.66666666666669" y="691" width="180" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre de usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nPT-yY-0RY">
-                                <rect key="frame" x="20" y="373" width="353" height="50"/>
+                                <rect key="frame" x="20" y="270" width="353" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="beV-DV-rrE"/>
                                 </constraints>
@@ -102,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1063.3587786259541" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="906" y="24"/>
         </scene>
         <!--View Registro-->
         <scene sceneID="vzU-PB-kjg">
@@ -1793,6 +1794,7 @@
                         <outlet property="labelTipoPregunta" destination="3nQ-n2-pST" id="WlB-zF-WEn"/>
                         <outlet property="numPregunta" destination="6ly-Xw-TaY" id="OP7-c2-9pi"/>
                         <outlet property="pregunta" destination="oAz-wI-QXT" id="DQj-uE-K9i"/>
+                        <segue destination="8gA-so-LDT" kind="presentation" identifier="ToResultFinal" id="gZQ-NV-ybS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FgD-ji-S2I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1802,13 +1804,13 @@
         <!--Result Final-->
         <scene sceneID="56l-Dr-7A8">
             <objects>
-                <viewController storyboardIdentifier="ToResults" id="8gA-so-LDT" customClass="resultFinal" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ToResultFinal" id="8gA-so-LDT" customClass="resultFinal" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aa5-M3-GD4">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="1090"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQs-qY-5LM">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="1090"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="1080"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krq-Sk-x3i">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1100"/>
@@ -2041,7 +2043,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="d8L-qh-cL1"/>
+        <segue reference="LfJ-tD-50Y"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
@@ -2055,7 +2057,7 @@
             <color red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

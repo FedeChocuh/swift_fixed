@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     private var loginVM = LoginViewModel()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,11 +68,19 @@ class ViewController: UIViewController {
                         // Handle the error without using an errorLabel
                         self.handleLoginError(error)
                     }
-                
         }
-            
+    }
+    
+    
+    @IBAction func QuizzDone(_ sender: UIButton) {
+        let defaults = UserDefaults.standard
+        let done = defaults.integer(forKey: "quizz_done")
+        if done == 1 {
+            self.performSegue(withIdentifier: "QuizzDone", sender: self)
+        }
         
     }
+    
     func handleLoginError(_ error: AuthenticationError) {
         switch error {
         case .custom(let errorMessage):

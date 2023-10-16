@@ -54,6 +54,14 @@ struct RegisterResponse: Codable {
 }
 
 //----------------------------------------
+struct QuizzDone: Codable {
+    let message: String?
+    let done: Int?
+    let count: Int?
+}
+
+//----------------------------------------
+
 class Webservice {
     func login(email: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
         
@@ -173,6 +181,58 @@ class Webservice {
             completion(.success(values))
             
         }.resume()
-        
     }
+    
+    func quizz(message: String, done: Int, count: Int,completion: @escaping (Result<String, AuthenticationError>) -> Void){
+        let defaults = UserDefaults.standard
+        let userId = defaults.integer(forKey: "user_id")
+        
+        guard let url = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/users/start-quiz/"+String(userId)) else {
+            completion(.failure(.custom(errorMessage: "URL is not correct")))
+            return
+        }
+        print(url)
+        
+        let body = QuizzDone(message: message, done: done, count: count)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONEncoder().encode(body)
+        
+        URLSession.shared.dataTask(with: request) {(data,response, error) in
+            print("Response:", response)
+            print("Error:", error)
+            guard let data = data, error == nil else {
+                completion(.failure(.custom(errorMessage: "No data")))
+                return
+            }
+            
+            guard let quizzResponse = try? JSONDecoder().decode(QuizzDone.self, from: data) else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            
+            guard let message = quizzResponse.message else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            defaults.setValue(message, forKey: "quizz_message")
+            
+            guard let count = quizzResponse.count else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            defaults.setValue(count, forKey: "quizz_count")
+            
+            guard let done = quizzResponse.done else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            defaults.setValue(done, forKey: "quizz_done")
+
+            
+        }
+    }
+    
 }
