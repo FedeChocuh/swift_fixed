@@ -105,6 +105,7 @@ class ViewCuestInicial: UIViewController {
     
     
     @IBAction func userAnswer(_ sender: UIButton) {
+        let defaults = UserDefaults.standard
         let userId = defaults.integer(forKey: "user_id")
         let answer = sender.titleLabel?.text
         let questionid = engine.getId()
@@ -150,6 +151,7 @@ class ViewCuestInicial: UIViewController {
         
         if questionid == 50 {
             self.performSegue(withIdentifier: "ToResults", sender: self)
+            defaults.setValue(1, forKey: "quiz_done")
         }
 
         

@@ -12,6 +12,7 @@
 		2E1402132ACC8D0E00A07382 /* EcomplexityEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1402122ACC8D0E00A07382 /* EcomplexityEngine.swift */; };
 		2E1402172ACC8DBC00A07382 /* UserResponsesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1402162ACC8DBC00A07382 /* UserResponsesController.swift */; };
 		2E1402192ACC8DED00A07382 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1402182ACC8DED00A07382 /* Answer.swift */; };
+		2E2C5F352ADF5596008C3F76 /* QuizzDoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C5F342ADF5596008C3F76 /* QuizzDoneViewModel.swift */; };
 		2E3E5A152AC36C3500E02774 /* Registro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E5A142AC36C3500E02774 /* Registro.swift */; };
 		2E3E5A182AC385F300E02774 /* ViewCuestInicial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E5A172AC385F300E02774 /* ViewCuestInicial.swift */; };
 		2E3E5A1E2AC6109000E02774 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E5A1D2AC6109000E02774 /* LoginViewModel.swift */; };
@@ -69,6 +70,7 @@
 		2E1402122ACC8D0E00A07382 /* EcomplexityEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcomplexityEngine.swift; sourceTree = "<group>"; };
 		2E1402162ACC8DBC00A07382 /* UserResponsesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponsesController.swift; sourceTree = "<group>"; };
 		2E1402182ACC8DED00A07382 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		2E2C5F342ADF5596008C3F76 /* QuizzDoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzDoneViewModel.swift; sourceTree = "<group>"; };
 		2E3E5A142AC36C3500E02774 /* Registro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registro.swift; sourceTree = "<group>"; };
 		2E3E5A172AC385F300E02774 /* ViewCuestInicial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCuestInicial.swift; sourceTree = "<group>"; };
 		2E3E5A1D2AC6109000E02774 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				2E1402122ACC8D0E00A07382 /* EcomplexityEngine.swift */,
 				2E1402162ACC8DBC00A07382 /* UserResponsesController.swift */,
 				2E1402182ACC8DED00A07382 /* Answer.swift */,
+				2E2C5F342ADF5596008C3F76 /* QuizzDoneViewModel.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				571B82EC2AD3573300EB71CE /* ViewCuestFinal.swift in Sources */,
 				8D73E4322AD2364100F037B2 /* Actividad2ViewControler.swift in Sources */,
 				8D73E4382AD24CE600F037B2 /* Act4ViewController.swift in Sources */,
+				2E2C5F352ADF5596008C3F76 /* QuizzDoneViewModel.swift in Sources */,
 				8B17F9E22AD741560016B8B8 /* FileTransferUtility.swift in Sources */,
 				2E8E29D52AD381E100C79782 /* ActividadesMain.swift in Sources */,
 				2E1402192ACC8DED00A07382 /* Answer.swift in Sources */,

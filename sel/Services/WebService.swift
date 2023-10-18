@@ -48,16 +48,17 @@ struct RegisterRequestBody: Codable {
 }
 
 struct RegisterResponse: Codable {
+    let user_id: Int?
     let values: String?
     let message: String?
     let success: Bool?
 }
 
 //----------------------------------------
-struct QuizzDone: Codable {
+struct QuizDone: Codable {
     let message: String?
-    let done: Int?
     let count: Int?
+    let done: Int?
 }
 
 //----------------------------------------
@@ -71,6 +72,7 @@ class Webservice {
             completion(.failure(.custom(errorMessage: "URL is not correct")))
             return
         }
+        
         
         let body = LoginRequestBody(email: email, password: password)
         
@@ -148,10 +150,13 @@ class Webservice {
     
     func register(name: String, password: String, country_id: String, gender: String, age: Int, email: String, university_id: Int,completion: @escaping (Result<String, AuthenticationError>) -> Void){
         
+        let defaults = UserDefaults.standard
+        
         guard let url = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/users") else {
             completion(.failure(.custom(errorMessage: "URL is not correct")))
             return
         }
+        
         
         let body = RegisterRequestBody(name: name, password: password, email:email, gender: gender, country_id: country_id, age:age, university_id:university_id)
         
@@ -183,17 +188,16 @@ class Webservice {
         }.resume()
     }
     
-    func quizz(message: String, done: Int, count: Int,completion: @escaping (Result<String, AuthenticationError>) -> Void){
+    func quiz(message: String, done: Int, count: Int,completion: @escaping (Result<String, AuthenticationError>) -> Void){
         let defaults = UserDefaults.standard
-        let userId = defaults.integer(forKey: "user_id")
+        let userid = defaults.integer(forKey: "userid")
         
-        guard let url = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/users/start-quiz/"+String(userId)) else {
+        guard let url = URL(string: "https://sel4c-e2-server-49c8146f2364.herokuapp.com/users/start-quiz/\(userid)") else {
             completion(.failure(.custom(errorMessage: "URL is not correct")))
             return
         }
-        print(url)
         
-        let body = QuizzDone(message: message, done: done, count: count)
+        let body = QuizDone(message: message, count: count,done: done)
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -208,31 +212,33 @@ class Webservice {
                 return
             }
             
-            guard let quizzResponse = try? JSONDecoder().decode(QuizzDone.self, from: data) else {
+            guard let quizResponse = try? JSONDecoder().decode(QuizDone.self, from: data) else {
                 completion(.failure(.invalidCredentials))
                 return
             }
             
-            guard let message = quizzResponse.message else {
+            guard let message = quizResponse.message else {
                 completion(.failure(.invalidCredentials))
                 return
             }
-            defaults.setValue(message, forKey: "quizz_message")
+            defaults.setValue(message, forKey: "quiz_message")
             
-            guard let count = quizzResponse.count else {
+            guard let count = quizResponse.count else {
                 completion(.failure(.invalidCredentials))
                 return
             }
-            defaults.setValue(count, forKey: "quizz_count")
+            defaults.setValue(count, forKey: "quiz_count")
             
-            guard let done = quizzResponse.done else {
+            guard let done = quizResponse.done else {
                 completion(.failure(.invalidCredentials))
                 return
             }
-            defaults.setValue(done, forKey: "quizz_done")
+            defaults.setValue(done, forKey: "quiz_done")
 
             
         }
     }
     
 }
+
+

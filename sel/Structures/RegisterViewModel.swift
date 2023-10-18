@@ -7,6 +7,7 @@
 import Foundation
 
    class RegisterViewModel {
+        var user_id = 0
         var name: String = ""
         var password: String = ""
         var email: String = ""
