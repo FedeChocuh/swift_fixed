@@ -41,8 +41,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Ingresar"/>
                                 <connections>
                                     <action selector="Access:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Qb-eT-ivl"/>
-                                    <action selector="QuizzDone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aeY-uF-bs3"/>
-                                    <segue destination="1nd-20-RhU" kind="presentation" identifier="IngresarToPreEncuesta" modalPresentationStyle="fullScreen" id="vet-s9-nrm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="azulFuerte" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXN-z6-Yit">
@@ -62,7 +60,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre de usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nPT-yY-0RY">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nPT-yY-0RY">
                                 <rect key="frame" x="20" y="270" width="353" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="beV-DV-rrE"/>
@@ -99,6 +97,8 @@
                         <outlet property="buttonRegistrarse" destination="qXN-z6-Yit" id="NHw-EI-Bcc"/>
                         <outlet property="layerNombreUsuario" destination="nPT-yY-0RY" id="q3F-s9-SrQ"/>
                         <outlet property="layerPassword" destination="Waw-TF-tEH" id="sQb-oF-BkQ"/>
+                        <segue destination="7Zh-xx-OQF" kind="presentation" identifier="QuizDone" modalPresentationStyle="fullScreen" id="iWW-4c-3pb"/>
+                        <segue destination="1nd-20-RhU" kind="presentation" identifier="IngresarToPreEncuesta" modalPresentationStyle="fullScreen" id="dXa-wR-ZrJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -560,7 +560,7 @@
                         <outlet property="labelNumPregunta" destination="ifq-Hp-CF5" id="3Xo-jW-YE3"/>
                         <outlet property="labelTipoPregunta" destination="rsl-fb-khF" id="oVs-qj-Eyp"/>
                         <outlet property="textviewPregunta" destination="1KI-GI-Xa3" id="0R6-ah-4p3"/>
-                        <segue destination="hKx-1l-isx" kind="show" identifier="ToResults" id="kTX-ia-2Db"/>
+                        <segue destination="hKx-1l-isx" kind="presentation" identifier="ToResults" modalPresentationStyle="fullScreen" id="kTX-ia-2Db"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3j-wR-03u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1030,7 +1030,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Actividades" id="9a3-o4-9FX"/>
-                    <navigationItem key="navigationItem" id="7M4-VX-yu4"/>
+                    <navigationItem key="navigationItem" title="Actividades" id="7M4-VX-yu4"/>
                     <connections>
                         <outlet property="ViewCierre" destination="CRR-3S-xUw" id="JEs-gh-JT2"/>
                         <outlet property="buttonAct1" destination="thx-Jb-eDO" id="y9Y-NP-YfF"/>
@@ -1152,7 +1152,7 @@
                         <viewLayoutGuide key="safeArea" id="0yL-va-2lg"/>
                         <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="uZE-Pr-wyX"/>
+                    <tabBarItem key="tabBarItem" title="perfil" id="uZE-Pr-wyX"/>
                     <navigationItem key="navigationItem" title="Perfil" id="Dq3-gB-7rE"/>
                     <connections>
                         <outlet property="buttonLogout" destination="FkC-WQ-iSW" id="NOZ-aV-fOg"/>
@@ -1191,11 +1191,11 @@
             <objects>
                 <viewController storyboardIdentifier="ToResults" id="hKx-1l-isx" customClass="resultEncInicial" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9zj-ie-9F6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="1080"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rb6-h8-YRY">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="1080"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppk-7b-yKD">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1100"/>
@@ -1409,7 +1409,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6gc-QU-Rs4"/>
-                    <size key="freeformSize" width="393" height="1090"/>
                     <connections>
                         <outlet property="buttonContinue" destination="4w8-fB-MK5" id="IdS-Sv-V0N"/>
                         <outlet property="label1" destination="VsF-Wq-1TJ" id="MPt-e8-9jS"/>
@@ -1436,7 +1435,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Vg-Za-2Sa">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                     </tabBar>
                     <connections>
@@ -2043,6 +2042,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="366-l6-Aed"/>
+        <segue reference="iWW-4c-3pb"/>
         <segue reference="LfJ-tD-50Y"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -13,13 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonIngresar: UIButton!
     
     
-    @IBOutlet weak var buttonRegistrarse: UIButton!    
+    @IBOutlet weak var buttonRegistrarse: UIButton!
     
     @IBOutlet weak var layerNombreUsuario: UITextField!
     
     @IBOutlet weak var layerPassword: UITextField!
     
-    private var loginVM = LoginViewModel()
     
     
     
@@ -51,35 +50,58 @@ class ViewController: UIViewController {
     }
     
     @IBAction func Access(_ sender: UIButton) {
-        
         guard let email = layerNombreUsuario.text, let password = layerPassword.text else {
-                    return
-                }
-                
+            return
+        }
         let webservice = Webservice()
-                // Call the login method from your WebService
+        // Call the login method from your WebService
         webservice.login(email: email, password: password) { result in
-                    switch result {
-                    case .success(let token):
+            let defaults = UserDefaults.standard
+            let done = defaults.integer(forKey: "quiz_done")
+            DispatchQueue.main.async {
+                if done == 1 {
+                    self.performSegue(withIdentifier: "QuizDone", sender: self)
+                    print("QuizDone Segue performed.")
+                } else {
+                    if case .success(let token) = result {
                         // Perform a segue to the next view controller or any other action
                         self.performSegue(withIdentifier: "IngresarToPreEncuesta", sender: self)
                         print("Login successful. Token: \(token)")
-                    case .failure(let error):
+                    } else if case .failure(let error) = result {
                         // Handle the error without using an errorLabel
                         self.handleLoginError(error)
                     }
-        }
-    }
-    
-    
-    @IBAction func QuizzDone(_ sender: UIButton) {
-        let defaults = UserDefaults.standard
-        let done = defaults.integer(forKey: "quizz_done")
-        if done == 1 {
-            self.performSegue(withIdentifier: "QuizzDone", sender: self)
+                }
+                print(done)
+            }
+            
         }
         
+        
+        
+        /*switch result {
+         case .success(let token):
+         // Perform a segue to the next view controller or any other action
+         self.performSegue(withIdentifier: "IngresarToPreEncuesta", sender: self)
+         print("Login successful. Token: \(token)")
+         case .failure(let error):
+         // Handle the error without using an errorLabel
+         self.handleLoginError(error)
+         }*/
+        
     }
+    
+    
+    
+    /*@IBAction func QuizDone(_ sender: Any) {
+     let defaults = UserDefaults.standard
+     let done = defaults.integer(forKey: "quiz_done")
+     if done == 1 {
+     self.performSegue(withIdentifier: "QuizzDone", sender: self)
+     print(done)
+     }
+     print(done)
+     } */
     
     func handleLoginError(_ error: AuthenticationError) {
         switch error {
@@ -91,14 +113,14 @@ class ViewController: UIViewController {
             print("Invalid email or password")
             // You can display an alert or perform other actions here
             // Example: self.presentErrorAlert(message: "Invalid email or password")
-        // Handle other error cases as needed
+            // Handle other error cases as needed
         }
     }
     
-
     
-        
-        
-        
+    
+    
+    
 }
+
 
