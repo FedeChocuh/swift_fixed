@@ -7,10 +7,22 @@
 
 import UIKit
 
-class Act4ViewController: UIViewController{
+class Act4ViewController: UIViewController, UIDocumentPickerDelegate{
+    
+    var actId: String = "4"
+    let defaults = UserDefaults.standard
+    var userId: String {
+        return String(defaults.integer(forKey: "user_id"))
+    }
     
     @IBOutlet var viewBg: UIView!
     @IBOutlet weak var textView: UITextView!
+    
+    @IBOutlet weak var imagenact: UIImageView!
+    
+    @IBAction func startUp(_ sender: Any) {
+        selectFile()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,6 +124,64 @@ class Act4ViewController: UIViewController{
         textView.attributedText = attributedText
     }
     
+    func selectFile() {
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.data])
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false // Change to true if you want to allow multiple file selection
+        
+        present(documentPicker, animated: true, completion: nil)
+    }
+    
+    //extension ActividadesViewController: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let selectedFileURL = urls.first else {
+            return
+        }
+
+        FileTransferUtility.shared.uploadFile(url: selectedFileURL, userId: userId, activityId: actId) { result in
+            switch result {
+            case .success():
+                print("File uploaded successfully")
+                self.downloadAndDisplayFile()
+            case .failure(let error):
+                print("Error uploading file: \(error)")
+            }
+        }
+    }
+
+
+     
+        func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        }
+
+
+    func downloadAndDisplayFile() {
+        FileTransferUtility.shared.downloadFile(userId: userId, activityId: actId) { result in
+            switch result {
+            case .success(let fileURL):
+                // Load the image from the file URL
+                if let data = try? Data(contentsOf: fileURL), let image = UIImage(data: data) {
+                    // Update UI on the main thread
+                    DispatchQueue.main.async {
+                        self.imagenact.image = image
+                    }
+                } else {
+                    print("Failed to load image from \(fileURL)")
+                }
+            case .failure(let error):
+                print("Error downloading file: \(error)")
+            }
+        }
+    }
+
+    func showUploadOption() {
+        let alert = UIAlertController(title: "Upload File", message: "No file found for this activity. Would you like to upload one?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Upload", style: .default) { _ in
+            self.selectFile()
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
         
 
 }

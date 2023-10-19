@@ -33,6 +33,11 @@ class ViewCuestInicial: UIViewController {
     let defaults = UserDefaults.standard
      
     
+    var answers1to12: [Answer] = []
+    var answers13to24: [Answer] = []
+    var answers25to41: [Answer] = []
+    var answers42to50: [Answer] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         estiloBotones()
@@ -127,6 +132,20 @@ class ViewCuestInicial: UIViewController {
             ans.answer = 5
             //print("Muy de acuerdo")
         }
+        switch questionid {
+        case 1...12:
+            answers1to12.append(ans)
+        case 13...24:
+            answers13to24.append(ans)
+        case 25...41:
+            answers25to41.append(ans)
+        case 42...50:
+            answers42to50.append(ans)
+        default:
+            break
+        }
+
+        
         
     
         //sender.backgroundColor = UIColor.green
@@ -154,6 +173,15 @@ class ViewCuestInicial: UIViewController {
 
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToResults", let destinationVC = segue.destination as? resultEncInicial {
+            destinationVC.answers1to12 = self.answers1to12
+            destinationVC.answers13to24 = self.answers13to24
+            destinationVC.answers25to41 = self.answers25to41
+            destinationVC.answers42to50 = self.answers42to50
+        }
+    }
+
     
     func updateUserResponses(title: String){
         DispatchQueue.main.async {

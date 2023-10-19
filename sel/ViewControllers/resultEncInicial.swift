@@ -30,6 +30,10 @@ class resultEncInicial: UIViewController {
     @IBOutlet weak var label3: UILabel!
     
     @IBOutlet weak var label4: UILabel!
+    var answers1to12: [Answer] = []
+    var answers13to24: [Answer] = []
+    var answers25to41: [Answer] = []
+    var answers42to50: [Answer] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +46,7 @@ class resultEncInicial: UIViewController {
         // Ensure this code is run on the main thread
         DispatchQueue.main.async {
             // Get a reference to the storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)  
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
             // Instantiate the tab bar controller using its storyboard ID
             guard let tabBarController = storyboard.instantiateViewController(identifier: "TabBarController") as? UITabBarController else {
@@ -73,59 +77,21 @@ class resultEncInicial: UIViewController {
     }
     
     func calculatePercentage(){
-            
-            let answersPasionYcompromiso = defaults.integer(forKey: "answers")
-            let answersHabilidades = defaults.integer(forKey: "answers")
-            let answersPensamiento = defaults.integer(forKey: "answers")
-            let answersInvestigacion = defaults.integer(forKey: "answers")
-            
-            if answersPasionYcompromiso <= 12 {
-                let percentage = (answersPasionYcompromiso) / 12 * 100
-                self.label1.text = String(percentage)
-            }
-            if answersHabilidades >= 13 && answersHabilidades <= 24 {
-                let percentage = (answersHabilidades) / 12 * 100
-                self.label2.text = String(percentage)
-            }
-            if answersPensamiento >= 25 && answersPensamiento <= 41 {
-                let percentage = (answersPensamiento) / 17 * 100
-                self.label3.text = String(percentage)
-            }
-            if answersInvestigacion >= 42 && answersInvestigacion <= 50 {
-                let percentage = (answersInvestigacion) / 9 * 100
-                self.label4.text = String(percentage)
-            }
-            
-            
-            
-            
-        }
+        label1.text = "\(calculatePercentageForAnswers(answers: answers1to12, outOf: 12))%"
+        label2.text = "\(calculatePercentageForAnswers(answers: answers13to24, outOf: 12))%"
+        label3.text = "\(calculatePercentageForAnswers(answers: answers25to41, outOf: 17))%"
+        label4.text = "\(calculatePercentageForAnswers(answers: answers42to50, outOf: 9))%"
+    }
+    
+    func calculatePercentageForAnswers(answers: [Answer], outOf totalQuestions: Int) -> Int {
+        let totalScore = answers.reduce(0) { $0 + $1.answer }
+        let maximumScore = totalQuestions * 5
+        return (totalScore * 100) / maximumScore
+    }
+    
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         switchToTabBarController()
-        
-        let answersPasionYcompromiso = defaults.integer(forKey: "questionid")
-        let answersHabilidades = defaults.integer(forKey: "questionid")
-        let answersPensamiento = defaults.integer(forKey: "questionid")
-        let answersInvestigacion = defaults.integer(forKey: "questionid")
-        
-        if answersPasionYcompromiso <= 12 {
-            let percentage = (answersPasionYcompromiso) / 12 * 100
-            self.label1.text = String(percentage)
-        }
-        if answersHabilidades >= 13 && answersHabilidades <= 24 {
-            let percentage = (answersHabilidades) / 12 * 100
-            self.label2.text = String(percentage)
-        }
-        if answersPensamiento >= 25 && answersPensamiento <= 41 {
-            let percentage = (answersPensamiento) / 17 * 100
-            self.label3.text = String(percentage)
-        }
-        if answersInvestigacion >= 42 && answersInvestigacion <= 50 {
-            let percentage = (answersInvestigacion) / 9 * 100
-            self.label4.text = String(percentage)
-        }
-        
-            
+        calculatePercentage()
     }
 }
