@@ -165,11 +165,8 @@ class ActividadesViewController: UIViewController, UIDocumentPickerDelegate {
     }
 
 
-            // Here, you can handle the selected file (e.g., upload it to a server, process it, etc.)
-            // selectedFileURL contains the URL of the selected file.
-
+     
         func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-            // This function is called when the user cancels the file selection.
         }
 
 
