@@ -64,7 +64,7 @@ class ViewController: UIViewController {
         layerPassword.layer.cornerRadius = 25
         layerPassword.layer.borderWidth = 1
         layerPassword.layer.borderColor = UIColor.black.cgColor
-        
+        layerPassword.isSecureTextEntry = true
     }
     
     @IBAction func Access(_ sender: UIButton) {

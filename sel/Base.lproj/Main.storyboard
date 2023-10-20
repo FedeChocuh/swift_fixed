@@ -1029,7 +1029,7 @@
                             <constraint firstItem="5D3-WZ-TQq" firstAttribute="leading" secondItem="w2h-sL-3Aa" secondAttribute="leading" id="tIQ-iJ-COl"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Actividades" id="9a3-o4-9FX"/>
+                    <tabBarItem key="tabBarItem" title="Actividades" selectedImage="bolt.fill" catalog="system" id="9a3-o4-9FX"/>
                     <navigationItem key="navigationItem" title="Actividades" id="7M4-VX-yu4"/>
                     <connections>
                         <outlet property="ViewCierre" destination="CRR-3S-xUw" id="JEs-gh-JT2"/>
@@ -1152,7 +1152,7 @@
                         <viewLayoutGuide key="safeArea" id="0yL-va-2lg"/>
                         <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="perfil" id="uZE-Pr-wyX"/>
+                    <tabBarItem key="tabBarItem" title="perfil" selectedImage="person.fill" catalog="system" id="uZE-Pr-wyX"/>
                     <navigationItem key="navigationItem" title="Perfil" id="Dq3-gB-7rE"/>
                     <connections>
                         <outlet property="buttonLogout" destination="FkC-WQ-iSW" id="NOZ-aV-fOg"/>
@@ -1531,7 +1531,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Dj0-Fo-iuS"/>
                     <connections>
-                        <outlet property="actView" destination="1b8-DA-YS0" id="Gka-qW-6dV"/>
                         <outlet property="imagenact" destination="Vvh-Nq-qKY" id="sSQ-ti-GBa"/>
                         <outlet property="textView" destination="idL-Z0-qmr" id="xb0-2o-pPj"/>
                         <outlet property="viewBg" destination="d6M-mX-bVa" id="BVo-Qq-95c"/>
@@ -2157,9 +2156,11 @@
         <segue reference="LfJ-tD-50Y"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="bolt.fill" catalog="system" width="100" height="128"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="logo" width="1167" height="403"/>
         <image name="perfil" width="51" height="50"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="azulFuerte">
             <color red="0.0" green="0.10588235294117647" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

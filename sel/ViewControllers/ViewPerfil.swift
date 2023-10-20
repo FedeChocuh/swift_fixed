@@ -74,11 +74,13 @@ class ViewPerfil: UIViewController {
         labelPass.layer.borderWidth = 1
         labelPass.layer.borderColor = UIColor.black.cgColor
         labelPass.tintColor = UIColor(named: "labelPerfil")
+        labelPass.isSecureTextEntry = true
         
         labelNewPass.layer.cornerRadius = 15
         labelNewPass.layer.borderWidth = 1
         labelNewPass.layer.borderColor = UIColor.black.cgColor
         labelNewPass.tintColor = UIColor(named: "labelPerfil")
+        labelNewPass.isSecureTextEntry = true
         
     }
     
@@ -87,7 +89,7 @@ func showLabelData() {
         labelNombre.placeholder = storedUsername
     }
     if let storedMail = UserDefaults.standard.string(forKey: "email") {
-        labelNombre.placeholder = storedMail
+        labelMail.placeholder = storedMail
     }
     
     labelPass.text = loginVM.password

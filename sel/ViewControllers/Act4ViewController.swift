@@ -165,6 +165,8 @@ class Act4ViewController: UIViewController, UIDocumentPickerDelegate{
                     DispatchQueue.main.async {
                         self.imagenact.image = image
                     }
+                    let defaults = UserDefaults.standard
+                    defaults.set(true, forKey: "Activity4Completed")
                 } else {
                     print("Failed to load image from \(fileURL)")
                 }

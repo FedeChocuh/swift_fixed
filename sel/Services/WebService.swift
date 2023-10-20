@@ -140,7 +140,11 @@ class Webservice {
                 return
             }
             defaults.setValue(countryName, forKey: "country_name")
-            
+            defaults.setValue(false, forKey: "Activity1Completed")
+            defaults.setValue(false, forKey: "Activity2Completed")
+            defaults.setValue(false, forKey: "Activity3Completed")
+            defaults.setValue(false, forKey: "Activity4Completed")
+            defaults.setValue(false, forKey: "Activity5Completed")
             print(defaults)
             
             completion(.success(token))
