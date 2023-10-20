@@ -1863,6 +1863,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="En desacuerdo">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="userAnswer:" destination="W9d-yk-D0M" eventType="touchUpInside" id="Lze-0o-m3B"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQO-hi-R2S">
                                 <rect key="frame" x="47" y="548" width="290" height="46"/>
@@ -1871,6 +1874,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Ni acuerdo ni desacuerdo">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="userAnswer:" destination="W9d-yk-D0M" eventType="touchUpInside" id="Llu-U5-wJG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b96-lI-FhL">
                                 <rect key="frame" x="47" y="612" width="290" height="46"/>
@@ -1890,6 +1896,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Totalmente de acuerdo">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="userAnswer:" destination="W9d-yk-D0M" eventType="touchUpInside" id="Mo7-Xm-Ouh"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pregunta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM5-no-YkL">
                                 <rect key="frame" x="52" y="176" width="103" height="43"/>
