@@ -9,16 +9,13 @@ import UIKit
 
 class ViewCuestFinal: UIViewController {
     
-    
-    
     @IBOutlet weak var labelTipoPregunta: UILabel!
-    
     
     @IBOutlet weak var barraProgreso: UIProgressView!
     
     @IBOutlet weak var numPregunta: UILabel!
     
-    @IBOutlet weak var pregunta: UILabel!
+    @IBOutlet weak var textPregunta: UITextView!
     
     @IBOutlet weak var buttonTotalmenteDesacuerdo: UIButton!
     
@@ -95,7 +92,7 @@ class ViewCuestFinal: UIViewController {
         DispatchQueue.main.async {
             self.engine.initialize(q: questions)
             self.barraProgreso.progress = self.engine.getProgress()
-            self.pregunta.text = self.engine.getTextQuestion()
+            self.textPregunta.text = self.engine.getTextQuestion()
             self.numPregunta.text = String(self.engine.getId())
             self.labelTipoPregunta.text = self.engine.getTypeQuestion()
         }
@@ -160,7 +157,9 @@ class ViewCuestFinal: UIViewController {
                 try await userResponsesController.insertUserResponses(newUserResponses: ans)
                 updateUserResponses(title: "Las respuestas fueron almacenas con éxito en el servidor")
             }catch{
-                displayErrorUserResponses(UserResponsesError.itemNotFound, title: "No se pudo accer almacenar las respuestas en la base de datos")
+                /*displayErrorUserResponses(UserResponsesError.itemNotFound, title: "No se pudo accer almacenar las respuestas en la base de datos")*/
+                print("holi")
+
             }
         }
         
@@ -199,7 +198,7 @@ class ViewCuestFinal: UIViewController {
         }
     }
     @objc func nextQuestion(){
-        pregunta.text = engine.getTextQuestion()
+        textPregunta.text = engine.getTextQuestion()
         barraProgreso.progress = engine.getProgress()
         labelTipoPregunta.text = engine.getTypeQuestion()
         numPregunta.text = String(engine.getId())
@@ -220,19 +219,7 @@ class ViewCuestFinal: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
-    @objc func nextQuestionn(){
-        pregunta.text = engine.getTextQuestion()
-        barraProgreso.progress = engine.getProgress()
-        numPregunta.text = engine.getTypeQuestion()
-        
-        buttonDesacuerdo.isEnabled = true
-        buttonTotalmenteDesacuerdo.isEnabled = true
-        buttonNideacuerdoNidesacuerdo.isEnabled = true
-        buttonDeacuerdo.isEnabled = true
-        buttonTotalmenteDeacuerdo.isEnabled = true
-    }
-    
-     
+         
 }
 /*import UIKit
  

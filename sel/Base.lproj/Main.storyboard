@@ -1905,13 +1905,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAz-wI-QXT">
-                                <rect key="frame" x="52" y="241" width="52" height="27"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zSt-mK-fYw">
+                                <rect key="frame" x="46" y="227" width="296" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7QU-D5-X9G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1926,7 +1928,7 @@
                         <outlet property="buttonTotalmenteDesacuerdo" destination="nDI-Ta-3n0" id="zr2-JR-w2R"/>
                         <outlet property="labelTipoPregunta" destination="3nQ-n2-pST" id="WlB-zF-WEn"/>
                         <outlet property="numPregunta" destination="6ly-Xw-TaY" id="OP7-c2-9pi"/>
-                        <outlet property="pregunta" destination="oAz-wI-QXT" id="DQj-uE-K9i"/>
+                        <outlet property="textPregunta" destination="zSt-mK-fYw" id="KVh-Lb-MGq"/>
                         <segue destination="8gA-so-LDT" kind="presentation" identifier="ToResultFinal" id="gZQ-NV-ybS"/>
                     </connections>
                 </viewController>
