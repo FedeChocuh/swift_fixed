@@ -2279,8 +2279,9 @@ Cierre
                     <navigationItem key="navigationItem" id="CWJ-4B-DAj"/>
                     <size key="freeformSize" width="393" height="1300"/>
                     <connections>
-                        <outlet property="imagenact" destination="FRx-cr-sZ7" id="vpI-Aj-xpV"/>
-                        <outlet property="viewBlanca" destination="dHQ-rf-g3B" id="nMY-QU-br0"/>
+                        <outlet property="imagenact" destination="FRx-cr-sZ7" id="opB-4e-ZD1"/>
+                        <outlet property="subirarchivo" destination="DwG-br-ehs" id="Neo-AZ-wwj"/>
+                        <outlet property="viewBlanca" destination="dHQ-rf-g3B" id="oK7-5e-Oyx"/>
                         <outlet property="viewSubir" destination="DwG-br-ehs" id="vwP-QA-c69"/>
                     </connections>
                 </viewController>
