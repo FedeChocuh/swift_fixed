@@ -20,7 +20,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var layerPassword: UITextField!
     
     
-    
+    func switchToTabBarController() {
+        // Ensure this code is run on the main thread
+        DispatchQueue.main.async {
+            // Get a reference to the storyboard
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            // Instantiate the tab bar controller using its storyboard ID
+            guard let tabBarController = storyboard.instantiateViewController(identifier: "TabBarController") as? UITabBarController else {
+                print("Could not instantiate TabBarController")
+                return
+            }
+            
+            // Set the tab bar controller as the root view controller
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let sceneDelegate = windowScene.delegate as? SceneDelegate {
+                sceneDelegate.window?.rootViewController = tabBarController
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +78,7 @@ class ViewController: UIViewController {
             let done = defaults.integer(forKey: "quiz_done")
             DispatchQueue.main.async {
                 if done == 1 {
-                    self.performSegue(withIdentifier: "QuizDone", sender: self)
+                    self.switchToTabBarController()
                     print("QuizDone Segue performed.")
                 } else {
                     if case .success(let token) = result {

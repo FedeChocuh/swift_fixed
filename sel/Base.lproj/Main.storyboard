@@ -97,13 +97,13 @@
                         <outlet property="buttonRegistrarse" destination="qXN-z6-Yit" id="NHw-EI-Bcc"/>
                         <outlet property="layerNombreUsuario" destination="nPT-yY-0RY" id="q3F-s9-SrQ"/>
                         <outlet property="layerPassword" destination="Waw-TF-tEH" id="sQb-oF-BkQ"/>
-                        <segue destination="7Zh-xx-OQF" kind="presentation" identifier="QuizDone" modalPresentationStyle="fullScreen" id="iWW-4c-3pb"/>
                         <segue destination="1nd-20-RhU" kind="presentation" identifier="IngresarToPreEncuesta" modalPresentationStyle="fullScreen" id="dXa-wR-ZrJ"/>
+                        <segue destination="rzp-Kf-wMM" kind="showDetail" identifier="QuizDone" id="D50-bu-vXO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="24"/>
+            <point key="canvasLocation" x="969" y="-787"/>
         </scene>
         <!--View Registro-->
         <scene sceneID="vzU-PB-kjg">
@@ -2153,7 +2153,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iWW-4c-3pb"/>
+        <segue reference="XP9-1H-WtG"/>
         <segue reference="LfJ-tD-50Y"/>
     </inferredMetricsTieBreakers>
     <resources>

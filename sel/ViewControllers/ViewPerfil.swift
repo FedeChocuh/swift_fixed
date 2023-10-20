@@ -44,6 +44,7 @@ class ViewPerfil: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         estiloBotones()
+        showLabelData()
         self.navigationItem.hidesBackButton = true
         
     }
@@ -52,29 +53,29 @@ class ViewPerfil: UIViewController {
         formaView.layer.cornerRadius = 15
         
         buttonLogout.tintColor = UIColor(named: "azulTec")
-        buttonLogout.layer.cornerRadius = 25
+        buttonLogout.layer.cornerRadius = 15
         buttonLogout.clipsToBounds = true
         
         buttonModify.tintColor = UIColor(named: "azulTec")
-        buttonModify.layer.cornerRadius = 25
+        buttonModify.layer.cornerRadius = 15
         buttonModify.clipsToBounds = true
         
-        labelNombre.layer.cornerRadius = 25
+        labelNombre.layer.cornerRadius = 15
         labelNombre.layer.borderWidth = 1
         labelNombre.layer.borderColor = UIColor.black.cgColor
         labelNombre.tintColor = UIColor(named: "labelPerfil")
         
-        labelMail.layer.cornerRadius = 25
+        labelMail.layer.cornerRadius = 15
         labelMail.layer.borderWidth = 1
         labelMail.layer.borderColor = UIColor.black.cgColor
         labelMail.tintColor = UIColor(named: "labelPerfil")
         
-        labelPass.layer.cornerRadius = 25
+        labelPass.layer.cornerRadius = 15
         labelPass.layer.borderWidth = 1
         labelPass.layer.borderColor = UIColor.black.cgColor
         labelPass.tintColor = UIColor(named: "labelPerfil")
         
-        labelNewPass.layer.cornerRadius = 25
+        labelNewPass.layer.cornerRadius = 15
         labelNewPass.layer.borderWidth = 1
         labelNewPass.layer.borderColor = UIColor.black.cgColor
         labelNewPass.tintColor = UIColor(named: "labelPerfil")
@@ -83,8 +84,12 @@ class ViewPerfil: UIViewController {
     
 func showLabelData() {
     if let storedUsername = UserDefaults.standard.string(forKey: "UsernameKey") {
-        labelNombre.text = storedUsername
+        labelNombre.placeholder = storedUsername
     }
+    if let storedMail = UserDefaults.standard.string(forKey: "email") {
+        labelNombre.placeholder = storedMail
+    }
+    
     labelPass.text = loginVM.password
 }
 
