@@ -126,23 +126,23 @@ class ActividadesMain: UIViewController {
         }
         let isActivity4Completed = defaults.bool(forKey: "Activity4Completed")
         
-        if isActivity4Completed {
-            ViewCierre.alpha = 1.0
-            buttonCierre.isEnabled = true
-        } else {
-            ViewCierre.alpha = 0.5
-            buttonCierre.isEnabled = false
-        }
-        let isActivity5Completed = defaults.bool(forKey: "Activity5Completed")
-        
-        if isActivity5Completed {
+        if isActivity4Completed{
             viewFinal.alpha = 1.0
             buttonFinal.isEnabled = true
         } else {
             viewFinal.alpha = 0.5
             buttonFinal.isEnabled = false
         }
+        let isActivity5Completed = defaults.bool(forKey: "Activity5Completed")
         
+        if isActivity5Completed
+        {
+           ViewCierre.alpha = 1.0
+           buttonCierre.isEnabled = true
+       } else {
+           ViewCierre.alpha = 0.5
+           buttonCierre.isEnabled = false
+       }
         
         
     }

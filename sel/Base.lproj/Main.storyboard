@@ -911,7 +911,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Comenzar"/>
                                                         <connections>
-                                                            <segue destination="jv4-0Q-S3D" kind="show" id="8GL-F2-wNm"/>
+                                                            <segue destination="jv4-0Q-S3D" kind="presentation" id="YH1-EF-sQa"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-Video del Pitch final." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lhg-hf-0jJ">
@@ -930,12 +930,12 @@
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KxM-L8-OOd" secondAttribute="trailing" constant="20" symbolic="YES" id="ZQT-Dy-fAF"/>
                                                     <constraint firstAttribute="trailing" secondItem="ja3-vr-rbF" secondAttribute="trailing" constant="116" id="cDb-ff-wtd"/>
                                                     <constraint firstItem="KxM-L8-OOd" firstAttribute="top" secondItem="xwq-Ys-UM4" secondAttribute="bottom" constant="15" id="deA-bL-fbU"/>
-                                                    <constraint firstItem="ja3-vr-rbF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="V1w-bo-orW" secondAttribute="leading" symbolic="YES" id="eEe-l4-GqG"/>
+                                                    <constraint firstItem="ja3-vr-rbF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="V1w-bo-orW" secondAttribute="leading" constant="20" symbolic="YES" id="eEe-l4-GqG"/>
                                                     <constraint firstItem="ja3-vr-rbF" firstAttribute="top" secondItem="Lhg-hf-0jJ" secondAttribute="bottom" constant="17" id="gBS-rv-AvV"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xwq-Ys-UM4" secondAttribute="trailing" symbolic="YES" id="nL8-GB-6az"/>
                                                     <constraint firstAttribute="bottom" secondItem="ja3-vr-rbF" secondAttribute="bottom" constant="13" id="vng-mS-iP0"/>
                                                     <constraint firstItem="KxM-L8-OOd" firstAttribute="leading" secondItem="V1w-bo-orW" secondAttribute="leading" constant="8" id="w3T-uH-zss"/>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Lhg-hf-0jJ" secondAttribute="trailing" symbolic="YES" id="x1l-z1-oUh"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Lhg-hf-0jJ" secondAttribute="trailing" constant="20" symbolic="YES" id="x1l-z1-oUh"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRR-3S-xUw">
@@ -1905,13 +1905,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAz-wI-QXT">
-                                <rect key="frame" x="52" y="241" width="52" height="27"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zSt-mK-fYw">
+                                <rect key="frame" x="46" y="227" width="296" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7QU-D5-X9G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1926,7 +1928,7 @@
                         <outlet property="buttonTotalmenteDesacuerdo" destination="nDI-Ta-3n0" id="zr2-JR-w2R"/>
                         <outlet property="labelTipoPregunta" destination="3nQ-n2-pST" id="WlB-zF-WEn"/>
                         <outlet property="numPregunta" destination="6ly-Xw-TaY" id="OP7-c2-9pi"/>
-                        <outlet property="pregunta" destination="oAz-wI-QXT" id="DQj-uE-K9i"/>
+                        <outlet property="textPregunta" destination="zSt-mK-fYw" id="KVh-Lb-MGq"/>
                         <segue destination="8gA-so-LDT" kind="presentation" identifier="ToResultFinal" id="gZQ-NV-ybS"/>
                     </connections>
                 </viewController>
@@ -2231,6 +2233,9 @@ Cierre
                                                                 <rect key="frame" x="113" y="26.000000000000004" width="134" height="34.333333333333343"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="filled" title="Subir Archivos"/>
+                                                                <connections>
+                                                                    <action selector="subirArchivoTapped:" destination="jv4-0Q-S3D" eventType="touchUpInside" id="zyf-ZB-tLw"/>
+                                                                </connections>
                                                             </button>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FRx-cr-sZ7" userLabel="Act1_image">
                                                                 <rect key="frame" x="60" y="91" width="240" height="128"/>
@@ -2300,10 +2305,9 @@ Cierre
                     <navigationItem key="navigationItem" id="CWJ-4B-DAj"/>
                     <size key="freeformSize" width="393" height="1300"/>
                     <connections>
-                        <outlet property="imagenact" destination="FRx-cr-sZ7" id="opB-4e-ZD1"/>
+                        <outlet property="imagenact" destination="FRx-cr-sZ7" id="QhW-2x-nIP"/>
                         <outlet property="subirarchivo" destination="DwG-br-ehs" id="Neo-AZ-wwj"/>
                         <outlet property="viewBlanca" destination="dHQ-rf-g3B" id="oK7-5e-Oyx"/>
-                        <outlet property="viewSubir" destination="DwG-br-ehs" id="vwP-QA-c69"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTO-j7-DR5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

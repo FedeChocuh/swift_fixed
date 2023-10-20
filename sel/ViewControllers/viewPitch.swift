@@ -20,7 +20,10 @@ class viewPitch: UIViewController,UIDocumentPickerDelegate {
     @IBOutlet weak var imagenact: UIImageView!
     
     @IBOutlet weak var subirarchivo: UIButton!
-    
+    @IBAction func subirArchivoTapped(_ sender: Any) {
+        selectFile()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         estiloBotones()
@@ -32,7 +35,7 @@ class viewPitch: UIViewController,UIDocumentPickerDelegate {
         viewBlanca.layer.cornerRadius = 15
         
         subirarchivo.tintColor = UIColor(named: "azulTec")
-        subirarchivo.layer.cornerRadius = 25
+        subirarchivo.layer.cornerRadius = 15
         subirarchivo.clipsToBounds = true
         
 
@@ -81,8 +84,8 @@ class viewPitch: UIViewController,UIDocumentPickerDelegate {
                         self.imagenact.image = image
                     }
                     let defaults = UserDefaults.standard
-                    defaults.set(true, forKey: "Activity1Completed")
-                    let userInfo = ["completedActivity": "Activity1"]
+                    defaults.set(true, forKey: "Activity5Completed")
+                    let userInfo = ["completedActivity": "Activity5"]
                     NotificationCenter.default.post(name: Notification.Name("ActivityCompletedNotification"), object: nil, userInfo: userInfo)
                 } else {
                     print("Failed to load image from \(fileURL)")
