@@ -15,6 +15,15 @@ struct Country {
     let name: String
 }
 
+
+struct University {
+    let university_id: Int
+    let name: String
+}
+
+let universities = [University(university_id: 1, name: "Tec de Monterrey"), University(university_id: 2, name: "Universidad del Valle de México")]
+
+
 class ViewRegistro: UIViewController, UITableViewDelegate, UITableViewDataSource,UIPickerViewDataSource, UIPickerViewDelegate {
     var countries = [Country]()  // New: Array to hold country data
     let countryPickerView = UIPickerView()  // New: Country picker view
@@ -25,11 +34,15 @@ class ViewRegistro: UIViewController, UITableViewDelegate, UITableViewDataSource
         return 1
     }
 
+    let universityPickerView = UIPickerView()
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == genderPickerView {
             return genderOptions.count
         } else if pickerView == countryPickerView {
             return countries.count
+        } else if pickerView == universityPickerView { // <-- Add this
+            return universities.count
         }
         return 0
     }
@@ -39,6 +52,8 @@ class ViewRegistro: UIViewController, UITableViewDelegate, UITableViewDataSource
             return genderOptions[row]
         } else if pickerView == countryPickerView {
             return countries[row].name
+        } else if pickerView == universityPickerView { // <-- Add this
+            return universities[row].name
         }
         return nil
     }
@@ -48,9 +63,11 @@ class ViewRegistro: UIViewController, UITableViewDelegate, UITableViewDataSource
             layerGenero.text = genderOptions[row]
         } else if pickerView == countryPickerView {
             layerPais.text = countries[row].name
+        } else if pickerView == universityPickerView { // <-- Add this
+            layerUniversidad.text = universities[row].name
         }
     }
-   
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
@@ -141,6 +158,11 @@ class ViewRegistro: UIViewController, UITableViewDelegate, UITableViewDataSource
             countryPickerView.delegate = self  // New: Configure country picker view
             countryPickerView.dataSource = self
             layerPais.inputView = countryPickerView
+        
+        universityPickerView.delegate = self
+        universityPickerView.dataSource = self
+        layerUniversidad.inputView = universityPickerView
+
     }
     
     func estiloBotones(){
@@ -197,6 +219,8 @@ class ViewRegistro: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     
     @IBAction func AlreadyRegistered(_ sender: UIButton) {
+        let selectedUniversity = universities[universityPickerView.selectedRow(inComponent: 0)]
+        let universidad = selectedUniversity.university_id
         guard
             let username = layerNombre.text,
             let password = layerPassword.text,
@@ -204,9 +228,7 @@ class ViewRegistro: UIViewController, UITableViewDelegate, UITableViewDataSource
             let ageText = layerEdad.text,
             let age = Int(ageText),
             let email = layerEmail.text,
-            let gender = layerGenero.text,
-            let universidadText = layerUniversidad.text,
-            let universidad = Int(universidadText)
+            let gender = layerGenero.text
         else {
             return
         }

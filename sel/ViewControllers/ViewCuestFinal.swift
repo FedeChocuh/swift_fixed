@@ -163,7 +163,7 @@ class ViewCuestFinal: UIViewController {
             }
         }
         
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector("nextQuestion"), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: Selector("nextQuestion"), userInfo: nil, repeats: false)
         if questionid == 50 {
             self.performSegue(withIdentifier: "ToResultFinal", sender: self)
         }
@@ -206,7 +206,7 @@ class ViewCuestFinal: UIViewController {
         buttonTotalmenteDeacuerdo.isEnabled = true
         buttonNideacuerdoNidesacuerdo.isEnabled = true
         buttonDesacuerdo.isEnabled = true
-        buttonDesacuerdo.isEnabled = true
+        buttonDeacuerdo.isEnabled = true
         buttonTotalmenteDesacuerdo.isEnabled = true
     }
     

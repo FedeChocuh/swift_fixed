@@ -1849,7 +1849,7 @@
                                 <rect key="frame" x="47" y="419" width="290" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Totalmente en Desacuerdo">
+                                <buttonConfiguration key="configuration" style="filled" title="Totalmente en desacuerdo">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -1860,7 +1860,7 @@
                                 <rect key="frame" x="47" y="483" width="290" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="En Desacuerdo">
+                                <buttonConfiguration key="configuration" style="filled" title="En desacuerdo">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 </buttonConfiguration>
                             </button>
@@ -1868,7 +1868,7 @@
                                 <rect key="frame" x="47" y="548" width="290" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Ni de acuerdo ni Desacuerdo">
+                                <buttonConfiguration key="configuration" style="filled" title="Ni acuerdo ni desacuerdo">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 </buttonConfiguration>
                             </button>
@@ -1887,7 +1887,7 @@
                                 <rect key="frame" x="47" y="677" width="290" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Totalmente de Acuerdo">
+                                <buttonConfiguration key="configuration" style="filled" title="Totalmente de acuerdo">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 </buttonConfiguration>
                             </button>
