@@ -1643,8 +1643,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Be-SR-Tqd">
                                 <rect key="frame" x="0.0" y="41" width="393" height="801"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QDf-ya-nui">
-                                        <rect key="frame" x="0.0" y="8" width="393" height="1324.333333333333"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QDf-ya-nui">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1324"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Act 3.- Ideación" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ys2-Rg-lDG">
                                                 <rect key="frame" x="84" y="8" width="225" height="36"/>
@@ -1654,33 +1654,40 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instrucciones:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0N-vT-x7N">
-                                                <rect key="frame" x="16" y="77" width="113" height="22"/>
+                                                <rect key="frame" x="16" y="52" width="113" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="View 3" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e1I-Sz-KOq">
-                                                <rect key="frame" x="16" y="107" width="361" height="587"/>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wC8-1e-Wqr">
+                                                <rect key="frame" x="0.0" y="110" width="393" height="825"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="View 3" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e1I-Sz-KOq">
+                                                        <rect key="frame" x="16" y="-29" width="361" height="587"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnq-0i-UlJ">
+                                                        <rect key="frame" x="129" y="579" width="134" height="35"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Subir Archivos"/>
+                                                        <connections>
+                                                            <action selector="startUp:" destination="Tq5-Ug-qUA" eventType="touchUpInside" id="YWD-i4-cAS"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k0W-BU-GPx">
+                                                        <rect key="frame" x="76" y="622" width="240" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnq-0i-UlJ">
-                                                <rect key="frame" x="130" y="708" width="134" height="35"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Subir Archivos"/>
-                                                <connections>
-                                                    <action selector="startUp:" destination="Tq5-Ug-qUA" eventType="touchUpInside" id="YWD-i4-cAS"/>
-                                                </connections>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k0W-BU-GPx">
-                                                <rect key="frame" x="76" y="751" width="240" height="128"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1691,9 +1698,9 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="QDf-ya-nui" secondAttribute="bottom" id="9B5-OL-tcj"/>
                                     <constraint firstItem="QDf-ya-nui" firstAttribute="leading" secondItem="3Be-SR-Tqd" secondAttribute="leading" id="NvD-sA-q0y"/>
+                                    <constraint firstItem="QDf-ya-nui" firstAttribute="top" secondItem="3Be-SR-Tqd" secondAttribute="top" id="Og3-bW-wWn"/>
                                     <constraint firstItem="QDf-ya-nui" firstAttribute="centerX" secondItem="3Be-SR-Tqd" secondAttribute="centerX" id="VoW-wm-l0C"/>
-                                    <constraint firstItem="QDf-ya-nui" firstAttribute="centerY" secondItem="3Be-SR-Tqd" secondAttribute="centerY" id="ZJI-Dk-B4y"/>
-                                    <constraint firstAttribute="trailing" secondItem="QDf-ya-nui" secondAttribute="trailing" id="o3H-Cv-JW5"/>
+                                    <constraint firstAttribute="trailing" secondItem="QDf-ya-nui" secondAttribute="trailing" constant="-5" id="o3H-Cv-JW5"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -1729,43 +1736,50 @@
                                 <rect key="frame" x="0.0" y="46" width="393" height="796"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIo-NZ-jDD">
-                                        <rect key="frame" x="0.0" y="-264" width="393" height="1324"/>
+                                        <rect key="frame" x="0.0" y="-23" width="393" height="1324"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instrucciones:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgu-cU-xh1">
-                                                <rect key="frame" x="16" y="313" width="113" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="View 4" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QCc-Xm-VJ3">
-                                                <rect key="frame" x="16" y="343" width="361" height="638"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Act 4.- Socialización" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTz-gE-M9O">
-                                                <rect key="frame" x="50" y="262" width="292" height="36"/>
+                                                <rect key="frame" x="50" y="17" width="292" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwC-wx-YDz">
-                                                <rect key="frame" x="130" y="989" width="134" height="35"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instrucciones:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgu-cU-xh1">
+                                                <rect key="frame" x="16" y="61" width="113" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Subir Archivos"/>
-                                                <connections>
-                                                    <action selector="startUp:" destination="Khs-qi-mb0" eventType="touchUpInside" id="CPv-WW-DOb"/>
-                                                </connections>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="og9-oV-dVM">
-                                                <rect key="frame" x="77" y="1032" width="240" height="128"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9RT-hz-J2e">
+                                                <rect key="frame" x="0.0" y="91" width="393" height="817"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="View 4" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QCc-Xm-VJ3">
+                                                        <rect key="frame" x="16" y="1" width="361" height="597"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwC-wx-YDz">
+                                                        <rect key="frame" x="129" y="606" width="134" height="35"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Subir Archivos"/>
+                                                        <connections>
+                                                            <action selector="startUp:" destination="Khs-qi-mb0" eventType="touchUpInside" id="CPv-WW-DOb"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="og9-oV-dVM">
+                                                        <rect key="frame" x="76" y="649" width="240" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1774,10 +1788,10 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="SIo-NZ-jDD" firstAttribute="centerY" secondItem="gSv-D3-IAY" secondAttribute="centerY" id="EO8-U8-Ni3"/>
                                     <constraint firstAttribute="bottom" secondItem="SIo-NZ-jDD" secondAttribute="bottom" id="FbF-qH-28D"/>
                                     <constraint firstAttribute="trailing" secondItem="SIo-NZ-jDD" secondAttribute="trailing" id="Wwn-wN-C5O"/>
                                     <constraint firstItem="SIo-NZ-jDD" firstAttribute="centerX" secondItem="gSv-D3-IAY" secondAttribute="centerX" id="b0G-Ql-82d"/>
+                                    <constraint firstItem="SIo-NZ-jDD" firstAttribute="top" secondItem="gSv-D3-IAY" secondAttribute="top" constant="-23" id="nc5-jC-zMV"/>
                                     <constraint firstItem="SIo-NZ-jDD" firstAttribute="leading" secondItem="gSv-D3-IAY" secondAttribute="leading" id="yVk-pw-6uk"/>
                                 </constraints>
                             </scrollView>
