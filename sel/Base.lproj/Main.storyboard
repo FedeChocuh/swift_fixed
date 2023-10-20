@@ -910,6 +910,9 @@
                                                         <rect key="frame" x="117" y="126" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Comenzar"/>
+                                                        <connections>
+                                                            <segue destination="jv4-0Q-S3D" kind="show" id="8GL-F2-wNm"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-Video del Pitch final." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lhg-hf-0jJ">
                                                         <rect key="frame" x="8" y="88" width="162" height="21"/>
@@ -2164,6 +2167,142 @@
             </objects>
             <point key="canvasLocation" x="6985" y="1482"/>
         </scene>
+        <!--View Pitch-->
+        <scene sceneID="TIl-UY-URT">
+            <objects>
+                <viewController id="jv4-0Q-S3D" customClass="viewPitch" customModule="sel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Anj-Zj-OEh">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1290"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zn3-j3-XDS">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="1290"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcA-De-gLo">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHQ-rf-g3B">
+                                                <rect key="frame" x="21" y="31" width="350" height="1161"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Act 5.- Entregable Final" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMJ-Qs-fVZ">
+                                                        <rect key="frame" x="9" y="26" width="334" height="36"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTL-QE-aIf">
+                                                        <rect key="frame" x="8" y="84" width="333" height="891"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <string key="text">En SEL4C sabemos que muchas de las propuestas que se generan a partir de estas actividades pueden efectivamente resolver grandes problemas, por ende, te invitamos a que des seguimiento a tu proyecto de emprendimiento social generando un pitch que te permita comunicarla de manera efectiva.
+
+Instrucciones
+Como cierre de todo el proceso de identificación, investigación e ideación, debes ser capaz de poder compartir tu propuesta por medio de un pitch.
+En este pitch debe ser una presentación formal y durar entre 3 y 5 minutos.
+Te sugerimos realizar un guion de tu pitch de acuerdo con los tres grandes momentos y utilizando las siguientes pautas y preguntas como referencia.
+ 
+Apertura
+·   Pauta 1. Comparte datos de alto impacto relacionados con el problema. ¿A cuántas personas afecta en el mundo, en ambos países y en ambas ciudades?
+·   Pauta 2. Presentate y explica porque este problema te resulta importante
+Desarrollo
+·   Pauta 3. Habla de su propuesta de solución. ¿Cómo se llama? ¿Qué es lo que hace o propone?
+·   Pauta 4.  ¿Por qué tu propuesta es original y viable?
+·   Pauta 5. ¿A quién beneficia tu propuesta? ¿Qué impacto crees que pudiera tener para mejorar la vida de las personas?
+Cierre
+·   Pauta 6. Llamado a la Acción: Invita a las personas a que se sumen y señala como es que podrían sumarse.
+·   Pauta 7. Finalmente, agradece la atención prestada y despídete.
+ 
+¿Qué debes entregar?
+·   	Video del Pitch</string>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZf-pq-TZk" customClass="Actividades" customModule="sel" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="915" width="350" height="246"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwG-br-ehs">
+                                                                <rect key="frame" x="113" y="26.000000000000004" width="134" height="34.333333333333343"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="Subir Archivos"/>
+                                                            </button>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FRx-cr-sZ7" userLabel="Act1_image">
+                                                                <rect key="frame" x="60" y="91" width="240" height="128"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="DwG-br-ehs" firstAttribute="top" secondItem="aZf-pq-TZk" secondAttribute="top" constant="26" id="91t-RM-MSR"/>
+                                                            <constraint firstItem="DwG-br-ehs" firstAttribute="centerX" secondItem="FRx-cr-sZ7" secondAttribute="centerX" id="Mxu-Yx-4bb"/>
+                                                            <constraint firstItem="DwG-br-ehs" firstAttribute="leading" secondItem="aZf-pq-TZk" secondAttribute="leading" constant="113" id="TcY-aN-UIv"/>
+                                                            <constraint firstAttribute="bottom" secondItem="FRx-cr-sZ7" secondAttribute="bottom" constant="27" id="aYZ-Ks-yky"/>
+                                                            <constraint firstItem="FRx-cr-sZ7" firstAttribute="top" secondItem="DwG-br-ehs" secondAttribute="bottom" constant="30.666666666666515" id="d4Y-4F-x5c"/>
+                                                            <constraint firstItem="FRx-cr-sZ7" firstAttribute="leading" secondItem="aZf-pq-TZk" secondAttribute="leading" constant="60" id="nhS-GU-K0W"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="VTL-QE-aIf" secondAttribute="trailing" constant="9" id="0l7-br-ytx"/>
+                                                    <constraint firstItem="VTL-QE-aIf" firstAttribute="leading" secondItem="dHQ-rf-g3B" secondAttribute="leading" constant="8" id="6nQ-UH-QUL"/>
+                                                    <constraint firstAttribute="bottom" secondItem="aZf-pq-TZk" secondAttribute="bottom" id="9YE-pm-sjg"/>
+                                                    <constraint firstItem="aZf-pq-TZk" firstAttribute="leading" secondItem="dHQ-rf-g3B" secondAttribute="leading" id="F4y-8a-yfv"/>
+                                                    <constraint firstAttribute="trailing" secondItem="aZf-pq-TZk" secondAttribute="trailing" id="GTt-to-q2w"/>
+                                                    <constraint firstItem="VTL-QE-aIf" firstAttribute="top" secondItem="DMJ-Qs-fVZ" secondAttribute="bottom" constant="22" id="LLN-pi-2gH"/>
+                                                    <constraint firstItem="DMJ-Qs-fVZ" firstAttribute="leading" secondItem="dHQ-rf-g3B" secondAttribute="leading" constant="9" id="Raz-mp-gSx"/>
+                                                    <constraint firstAttribute="trailing" secondItem="DMJ-Qs-fVZ" secondAttribute="trailing" constant="7" id="X51-su-mEg"/>
+                                                    <constraint firstItem="VTL-QE-aIf" firstAttribute="top" secondItem="DMJ-Qs-fVZ" secondAttribute="bottom" constant="22" id="b7p-Am-glw"/>
+                                                    <constraint firstItem="DMJ-Qs-fVZ" firstAttribute="top" secondItem="dHQ-rf-g3B" secondAttribute="top" constant="26" id="bcw-gG-cRA"/>
+                                                    <constraint firstAttribute="bottom" secondItem="VTL-QE-aIf" secondAttribute="bottom" constant="186" id="nVp-iK-vj0"/>
+                                                    <constraint firstItem="aZf-pq-TZk" firstAttribute="top" secondItem="DMJ-Qs-fVZ" secondAttribute="bottom" constant="853" id="xbE-Pz-Nxg"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" name="azulTec"/>
+                                        <constraints>
+                                            <constraint firstItem="dHQ-rf-g3B" firstAttribute="leading" secondItem="AcA-De-gLo" secondAttribute="leading" constant="21" id="3cg-OJ-EJf"/>
+                                            <constraint firstAttribute="bottom" secondItem="dHQ-rf-g3B" secondAttribute="bottom" constant="8" id="5M8-tZ-FLP"/>
+                                            <constraint firstAttribute="height" constant="1200" id="jqr-vJ-wcD"/>
+                                            <constraint firstAttribute="trailing" secondItem="dHQ-rf-g3B" secondAttribute="trailing" constant="22" id="m1Q-Be-qfD"/>
+                                            <constraint firstItem="dHQ-rf-g3B" firstAttribute="top" secondItem="AcA-De-gLo" secondAttribute="top" constant="31" id="pw5-R4-bR4"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="AcA-De-gLo" firstAttribute="leading" secondItem="zn3-j3-XDS" secondAttribute="leading" id="Iy1-TK-1EB"/>
+                                    <constraint firstAttribute="trailing" secondItem="AcA-De-gLo" secondAttribute="trailing" id="fp3-7N-JGn"/>
+                                    <constraint firstItem="AcA-De-gLo" firstAttribute="top" secondItem="zn3-j3-XDS" secondAttribute="top" id="fr3-hv-CDQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="AcA-De-gLo" secondAttribute="bottom" id="niS-Or-7M5"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ges-3q-Dtw"/>
+                        <color key="backgroundColor" name="azulTec"/>
+                        <constraints>
+                            <constraint firstItem="AcA-De-gLo" firstAttribute="width" secondItem="Anj-Zj-OEh" secondAttribute="width" id="2ia-fv-ncJ"/>
+                            <constraint firstItem="zn3-j3-XDS" firstAttribute="trailing" secondItem="ges-3q-Dtw" secondAttribute="trailing" id="5xL-LC-buZ"/>
+                            <constraint firstItem="zn3-j3-XDS" firstAttribute="top" secondItem="ges-3q-Dtw" secondAttribute="top" id="CKu-Ih-7Io"/>
+                            <constraint firstItem="zn3-j3-XDS" firstAttribute="bottom" secondItem="ges-3q-Dtw" secondAttribute="bottom" id="Eev-v2-4Ox"/>
+                            <constraint firstItem="zn3-j3-XDS" firstAttribute="trailing" secondItem="ges-3q-Dtw" secondAttribute="trailing" id="GfU-pb-K0T"/>
+                            <constraint firstItem="zn3-j3-XDS" firstAttribute="top" secondItem="ges-3q-Dtw" secondAttribute="top" id="Hce-ch-6iE"/>
+                            <constraint firstItem="zn3-j3-XDS" firstAttribute="bottom" secondItem="ges-3q-Dtw" secondAttribute="bottom" id="Hjm-6I-q8D"/>
+                            <constraint firstItem="zn3-j3-XDS" firstAttribute="leading" secondItem="ges-3q-Dtw" secondAttribute="leading" id="YeG-1f-Kq6"/>
+                            <constraint firstItem="zn3-j3-XDS" firstAttribute="top" secondItem="ges-3q-Dtw" secondAttribute="top" id="fLp-Is-Kw2"/>
+                            <constraint firstItem="zn3-j3-XDS" firstAttribute="leading" secondItem="ges-3q-Dtw" secondAttribute="leading" id="j3Q-7e-E7r"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CWJ-4B-DAj"/>
+                    <size key="freeformSize" width="393" height="1300"/>
+                    <connections>
+                        <outlet property="imagenact" destination="FRx-cr-sZ7" id="opB-4e-ZD1"/>
+                        <outlet property="subirarchivo" destination="DwG-br-ehs" id="Neo-AZ-wwj"/>
+                        <outlet property="viewBlanca" destination="dHQ-rf-g3B" id="oK7-5e-Oyx"/>
+                        <outlet property="viewSubir" destination="DwG-br-ehs" id="vwP-QA-c69"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tTO-j7-DR5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4225" y="2502"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="XP9-1H-WtG"/>
@@ -2185,13 +2324,13 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
