@@ -70,7 +70,7 @@ class resultEncInicial: UIViewController {
         viewInvestigacion.layer.cornerRadius = 15
         
         buttonContinue.tintColor = UIColor(named: "azulFuerte")
-        buttonContinue.layer.cornerRadius = 25
+        buttonContinue.layer.cornerRadius = 15
         buttonContinue.clipsToBounds = true
         
         

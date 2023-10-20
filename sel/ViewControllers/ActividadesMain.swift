@@ -47,27 +47,27 @@ class ActividadesMain: UIViewController {
         ViewCierre.layer.cornerRadius = 15
         
         buttonAct1.tintColor = UIColor(named: "azulTec")
-        buttonAct1.layer.cornerRadius = 25
+        //buttonAct1.layer.cornerRadius = 25
         buttonAct1.clipsToBounds = true
         
         buttonAct2.tintColor = UIColor(named: "azulTec")
-        buttonAct2.layer.cornerRadius = 25
+        //buttonAct2.layer.cornerRadius = 25
         buttonAct2.clipsToBounds = true
         
         buttonAct3.tintColor = UIColor(named: "azulTec")
-        buttonAct3.layer.cornerRadius = 25
+        //buttonAct3.layer.cornerRadius = 25
         buttonAct3.clipsToBounds = true
         
         buttonAct4.tintColor = UIColor(named: "azulTec")
-        buttonAct4.layer.cornerRadius = 25
+        //buttonAct4.layer.cornerRadius = 25
         buttonAct4.clipsToBounds = true
         
         buttonCierre.tintColor = UIColor(named: "azulTec")
-        buttonCierre.layer.cornerRadius = 25
+        //buttonCierre.layer.cornerRadius = 25
         buttonCierre.clipsToBounds = true
         
         buttonFinal.tintColor = UIColor(named: "azulTec")
-        buttonFinal.layer.cornerRadius = 25
+        //buttonFinal.layer.cornerRadius = 25
         buttonFinal.clipsToBounds = true
 
     }

@@ -169,6 +169,7 @@ class ViewCuestInicial: UIViewController {
         
         if questionid == 50 {
             self.performSegue(withIdentifier: "ToResults", sender: self)
+            defaults.setValue(1, forKey: "quiz_done")
         }
 
         
