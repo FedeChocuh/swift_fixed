@@ -36,7 +36,18 @@ class ActividadesMain: UIViewController {
         estiloBotones()
         self.navigationItem.hidesBackButton = true
         updateActivityAccessBasedOnProgress()
+        NotificationCenter.default.addObserver(self, selector: #selector(activityCompletedNotificationReceived(_:)), name: Notification.Name("ActivityCompletedNotification"), object: nil)
     }
+    
+    
+    @objc func activityCompletedNotificationReceived(_ notification: Notification) {
+        // Check which activity was completed from the notification's userInfo
+        if let completedActivity = notification.userInfo?["completedActivity"] as? String {
+            print("\(completedActivity) was completed!") // This line is optional, just for debugging
+            updateActivityAccessBasedOnProgress()
+        }
+    }
+
     
     func estiloBotones() {
         viewAct1.layer.cornerRadius = 15
@@ -71,6 +82,10 @@ class ActividadesMain: UIViewController {
         buttonFinal.clipsToBounds = true
         
     }
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("ActivityCompletedNotification"), object: nil)
+    }
+
     func updateActivityAccessBasedOnProgress() {
         let defaults = UserDefaults.standard
         

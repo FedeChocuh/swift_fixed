@@ -167,6 +167,8 @@ class Act4ViewController: UIViewController, UIDocumentPickerDelegate{
                     }
                     let defaults = UserDefaults.standard
                     defaults.set(true, forKey: "Activity4Completed")
+                    let userInfo = ["completedActivity": "Activity4"]
+                    NotificationCenter.default.post(name: Notification.Name("ActivityCompletedNotification"), object: nil, userInfo: userInfo)
                 } else {
                     print("Failed to load image from \(fileURL)")
                 }
