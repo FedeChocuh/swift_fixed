@@ -52,7 +52,7 @@ class ViewPerfil: UIViewController {
     func estiloBotones(){
         formaView.layer.cornerRadius = 15
         
-        buttonLogout.tintColor = UIColor(named: "azulTec")
+        buttonLogout.tintColor = UIColor(named: "white")
         buttonLogout.layer.cornerRadius = 15
         buttonLogout.clipsToBounds = true
         
@@ -91,10 +91,17 @@ func showLabelData() {
     if let storedMail = UserDefaults.standard.string(forKey: "email") {
         labelMail.placeholder = storedMail
     }
-    
-    labelPass.text = loginVM.password
+        
 }
+    
 
+    @IBAction func logout(_ sender: UIButton) {
+        UserDefaults.standard.removeObject(forKey: "jsonwewbtoken")
+        UserDefaults.standard.synchronize()
+        performSegue(withIdentifier: "Logout", sender: self)
+        
+    }
+    
 
 
 }

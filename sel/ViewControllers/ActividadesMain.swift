@@ -41,12 +41,15 @@ class ActividadesMain: UIViewController {
     
     
     @objc func activityCompletedNotificationReceived(_ notification: Notification) {
-        // Check which activity was completed from the notification's userInfo
-        if let completedActivity = notification.userInfo?["completedActivity"] as? String {
-            print("\(completedActivity) was completed!") // This line is optional, just for debugging
-            updateActivityAccessBasedOnProgress()
+        DispatchQueue.main.async {
+            // Check which activity was completed from the notification's userInfo
+            if let completedActivity = notification.userInfo?["completedActivity"] as? String {
+                print("\(completedActivity) was completed!") // This line is optional, just for debugging
+                self.updateActivityAccessBasedOnProgress()
+            }
         }
     }
+
 
     
     func estiloBotones() {
